@@ -24,8 +24,10 @@ def filter_words(words):
     ['go', 'south']
 
     >>> filter_words(['how', 'about', 'i', 'go', 'through', 'that', 'little', 'passage', 'to', 'the', 'south'], skip_words)
-    """
+    ['go', 'passage', 'south']
 
+    """
+    
     for i in range(len(skip_words)):
         if skip_words[i] in words:
             words.remove(skip_words[i])
@@ -81,7 +83,6 @@ def normalise_input(user_input):
 
     """
 
-    # Remove punctuation and convert to lower case
     no_punct = remove_punct(user_input).lower()
     normalised = filter_words(no_punct.split())
     return normalised

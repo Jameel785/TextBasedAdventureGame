@@ -1,13 +1,17 @@
 #OOP for the enemies
 
+from game import *
+from player import *
+
 #Could add:
 #Different strengths and weaknesses
 
 class Enemy():
-    def __init__(self, name, health, damage_per_hit):
+    def __init__(self, name, health, damage_per_hit, items):
         self.name = name
         self.health = health
         self.damage_per_hit = damage_per_hit
+        self.items = items
 
     def remove_health(self, damage):
         """This method decreases the health of an enemy by 
@@ -28,6 +32,22 @@ class Enemy():
         True for dead and False for not dead"""
 
         if self.health <= 0:
+            self.drop_items()
             return True
         else:
             return False
+        
+    def drop_items(self):
+        overall_weight = 0
+        for item in self.items:
+            overall_weight += item["weight"]
+        for item in self.items:
+            player.inventory.append(item)
+        
+            
+            
+
+            
+            
+           
+

@@ -54,7 +54,7 @@ class Player():
 
         self.inventory.append(item)
         if self.weight_calculator():
-        print("You have picked up the item!") # maybe add item name later
+            print("You have picked up the item!") # maybe add item name later
 
         self.current_room["items"].remove(item)
 

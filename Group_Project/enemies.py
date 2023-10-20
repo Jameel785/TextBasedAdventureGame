@@ -1,13 +1,12 @@
 #OOP for the enemies
 
 from game import *
-from player import *
 
 #Could add:
 #Different strengths and weaknesses
 
 class Enemy():
-    def __init__(self, name, health, damage_per_hit, items):
+    def __init__(self, name, health, damage_per_hit, items, current_room):
         self.name = name
         self.health = health
         self.damage_per_hit = damage_per_hit
@@ -42,12 +41,17 @@ class Enemy():
         for item in self.items:
             overall_weight += item["weight"]
         for item in self.items:
-            player.inventory.append(item)
+            player.current_room.inventory.append(item)
         
             
             
 
+"""Add all the room classes in the format of:"""
+
+# enemies_name_here = Enemy(enemies_name, enemies_health, enemies_damage_per_hit, enemies_items, enemies_current_room)
+
+
             
             
-           
+#Jameel and Daniel
 

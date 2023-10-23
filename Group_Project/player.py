@@ -1,6 +1,5 @@
 #OOP for the player
 
-from game import *
 from items import *
 from map import rooms
 

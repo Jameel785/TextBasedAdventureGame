@@ -54,17 +54,7 @@ class Room():
         this exit leads."""
         
         return rooms[self.exits[direction]].name
-
-"""Add all the room classes in the format of:"""
-
-# room_name_here = Room(room_name, room_description, room_exit_dictionary*, room_items_dictionary**, room_enemies_list)
-
-"""*formatted like:"""
-
-#{"direction": "room_name_here", "direction": "room_name_here"}
-
-"""**formatted like:"""
-#{"item_name": item_}
+    
 
 #1
 Lecture_room = {
@@ -258,4 +248,3 @@ rooms = {
 }
 
 
-#Oli

@@ -6,47 +6,16 @@ from items import *
 from game_parser import *
 from enemies import *
 
-#player = Player()
-
-
-def print_room_items(room):
-    """This function takes a room as an input and nicely displays a list of items
-    found in this room (followed by a blank line). If there are no items in
-    the room, nothing is printed."""
-    
-    if len(room.items) > 0:
-        print("There is", room.list_of_items(), "here. \n")
-
-
-def print_room(room):
-    """This function takes a room as an input and nicely displays its name,
-    description and items within it."""
-
-    # Display room name
-    print("\n" + room.name.upper())
-
-    # Display room description
-    print("\n" + room.description + "\n")
-
-    # Display room items
-    print_room_items(room)
-
-
-def exit_leads_to(exits, direction):
-    """This function takes a dictionary of exits and a direction (a particular
-    exit taken from this dictionary). It returns the name of the room into which
-    this exit leads."""
-
-    return rooms[exits[direction]]["name"]
+player = Player(100, 15, Lecture_room, {health_potion, health_potion, rock}, 20)
 
 
 def print_menu():
     """This function displays the menu of available actions to the player."""
 
     print("You can:")
-    current_room.print_all_exits_name()
+    player.current_room.print_all_exits_name()
     
-    for item in current_room.items:
+    for item in player.current_room.items:
         print("TAKE", item.id.upper(), "to take a", item.name)
 
     for item in player.inventory:
@@ -62,9 +31,9 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."""
 
-    global current_room
-    if current_room.is_valid_exit(direction):
-        current_room = rooms[current_room["exits"][direction]]
+    global player.current_room
+    if player.current_room.is_valid_exit(direction):
+        player.current_room = rooms[player.current_room.exits[direction]]
     
 
 def execute_take(item_id):
@@ -73,7 +42,7 @@ def execute_take(item_id):
     there is no such item in the room, this function prints "You cannot take that."""
     
     taken = False
-    for item in current_room.items:
+    for item in player.current_room.items:
         if item_id == item.id:
             player.pick_up_item(item)
             taken -= True
@@ -87,16 +56,14 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."""
 
-    count = 0
+    picked_up = False
     for item in player.inventory:
         if item_id == item.id:
-            current_room.items.append(item)
+            player.current_room.items.append(item)
             player.drop_item(item)
-            count -= 1
-        else:
-            count += 1
+            picked_up = True
 
-    if count == len(player.inventory):
+    if picked_up:
         print("You cannot drop that.")
     
     
@@ -160,11 +127,11 @@ def main():
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
-        print_room(player.current_room)
+        player.current_room.print_room()
         player.print_inventory_items()
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room.exits, current_room.items)
+        command = menu(player.current_room.exits, player.current_room.items)
 
         # Execute the player's command
         execute_command(command)

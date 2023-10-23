@@ -7,6 +7,10 @@ from game_parser import *
 from enemies import *
 
 
+#This allows starts the players journeys
+player = Player(100, 15, rooms["Lecture_room"], {item_health, item_health, item_rock}, 20)  
+
+
 def print_menu():
     """This function displays the menu of available actions to the player."""
 

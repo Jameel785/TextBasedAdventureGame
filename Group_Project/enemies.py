@@ -50,8 +50,7 @@ class Enemy():
 
 # enemies_name_here = Enemy(enemies_name, enemies_health, enemies_damage_per_hit, enemies_items, enemies_current_room)
 
-    
-            
+                
             
 #Jameel
 

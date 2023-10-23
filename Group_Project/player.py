@@ -1,9 +1,12 @@
 #OOP for the player
 
 from game import *
+from items import *
+from map import rooms
 
 #Could add:
 #Different strengths and weaknesses
+
 
 class Player():
     def __init__(self, health, damage_per_hit, current_room, inventory, max_weight):
@@ -111,5 +114,5 @@ class Player():
 
             
 
-            
-            
+#This allows starts the players journeys
+player = Player(100, 15, rooms["Lecture_room"], {item_health, item_health, item_rock}, 20)      

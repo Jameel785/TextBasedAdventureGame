@@ -1,4 +1,5 @@
-
+from player import player
+from enemies import *
 
 class Item():
     def __init__(self, id, name, description, damage_increase, weight, owned_by):
@@ -10,11 +11,6 @@ class Item():
         self.owned_by = owned_by
 
 
-"""Add all the item classes in the format of:"""
-
-# item_name_here = Item(item_id, item_name, item_description, item_damage_increase, item_weight, item_is_owned_by)
-
-#example:
 
 item_blunderbuss = ("blunderbuss-firearm", "blunderbuss", "blast your enemies back to the 18th century.", "damage increase", "weight", None)
 
@@ -67,5 +63,3 @@ items = {
     "blunderbuss": item_blunderbuss,
 }
 
-
-#Dan

@@ -6,8 +6,6 @@ from items import *
 from game_parser import *
 from enemies import *
 
-player = Player(100, 15, Lecture_room, {health_potion, health_potion, rock}, 20)
-
 
 def print_menu():
     """This function displays the menu of available actions to the player."""
@@ -31,7 +29,7 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."""
 
-    global player.current_room
+    
     if player.current_room.is_valid_exit(direction):
         player.current_room = rooms[player.current_room.exits[direction]]
     

@@ -6,10 +6,11 @@ from game import *
 #Different strengths and weaknesses
 
 class Enemy():
-    def __init__(self, name, health, damage_per_hit, items, current_room):
+    def __init__(self, name, health, damage_per_hit, weapon,  items, current_room):
         self.name = name
         self.health = health
         self.damage_per_hit = damage_per_hit
+        self.weapon = weapon
         self.items = items
 
     def remove_health(self, damage):
@@ -49,6 +50,13 @@ class Enemy():
 """Add all the room classes in the format of:"""
 
 # enemies_name_here = Enemy(enemies_name, enemies_health, enemies_damage_per_hit, enemies_items, enemies_current_room)
+first_year = Enemy("First Year", 50, 10, "macbook", ["4 cans of cider", "hoodie", "macbook"], "")
+mature_first_year = Enemy("Mature First Year", 70, 20, "bare hands", ["money", "gold ring", "key"], ["The_Taff", "The_Lounge", "Love_Cardiff_shop"])
+second_year = Enemy("Second Year", 80, 25, ["hot coffee", "knives"], ["knives", "car keys"], "")
+society_president = Enemy("Society President", 200, 30, "big red sword", ["big red sword", "Shield", "key"], "The_Senedd")
+phd_student = Enemy("PHD Student", 120, 35, "walking stick", ["doctor certificate", "ak47", "walking stick"], "")
+medicine_student = Enemy("Medicine Student", 160, 40, ["stethoscope", "syringe"], ["syringe", "scissors", "dictionary", "stethoscope", "bag of money"], "The_Prince_of_Wales")
+professor_stuart_allen = Enemy("Professor Student Allen", 200, 50, ["firing book", "teaching associates robots"], "cris", "")
 
     
             

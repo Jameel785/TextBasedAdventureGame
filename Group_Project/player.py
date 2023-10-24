@@ -2,7 +2,7 @@
 
 from items import *
 
-#this class stores information about the player to be feteched from other locations around the program
+#this class stores information about the player to be feteched from other locations around the programs
 class Player():     
     def __init__(self, health, damage_per_hit, current_room, inventory, max_weight):
         self.name = "Kirill"

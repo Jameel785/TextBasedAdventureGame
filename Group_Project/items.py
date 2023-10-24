@@ -1,5 +1,3 @@
-from player import Player
-
 #class for the items heald by players, enemies, and rooms
 
 class Item():

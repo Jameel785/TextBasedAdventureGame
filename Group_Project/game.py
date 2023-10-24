@@ -1,10 +1,13 @@
 #This is the program which contains most of the important ascpects to the game such as the game loop
 
+#libraries to be used in the program
+#sys allows us to quit the file once the game is done
+import sys
+
 #required information from other programs is imported
 from instance_creator import *
 from items import *
 from game_parser import *
-
 
 
 def print_menu():
@@ -34,7 +37,9 @@ def execute_go(direction):
 
     
     if player.current_room.is_valid_exit(direction):
-        print(player.current_room.exits[direction])
+        if player.current_room.exits[direction] == "END":
+            win_condition_met()
+        
         player.current_room = rooms[player.current_room.exits[direction]]
     
 
@@ -58,39 +63,19 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."""
 
-    print(type(item_id))
-
-    picked_up = False
+    dropped = False
     count = 0
 
-    while not picked_up:
+    while not dropped:
         if item_id == items[player.inventory[count]].id:
             player.drop_item(player.inventory[count])
-            picked_up = True
+            dropped = True
         
-        elif picked_up:
+        elif dropped:
             print("You cannot drop that.")
     
         count += 1
 
-    # picked_up = False
-
-    # try:
-    #     for item in player.inventory:
-    #         if item_id == items[item].id:
-    #             player.drop_item(item)
-    #             picked_up = True
-            
-    #         elif picked_up:
-    #             print("You cannot drop that.")
-    #             break
-                
-    # except RuntimeError:
-    #     pass
-
-    print(player.inventory)
-    
-    
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -143,7 +128,25 @@ def menu():
 
 
 def win_condition_met():
-    pass
+
+    print("")
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    print("                                                                                                   ")
+    print("                                                                                                   ")
+    print("oooooo   oooo   .oooooo.   ooooo     ooo     oooooo   oooooo     oooo ooooo ooooo      ooo      .o.")
+    print(" `888.   .8'   d8P'  `Y8b  `888'     `8'      `888.    `888.     .8'  `888' `888b.     `8'      888")
+    print("  `888. .8'   888      888  888       8        `888.   .8888.   .8'    888   8 `88b.    8       888")
+    print("   `888.8'    888      888  888       8         `888  .8'`888. .8'     888   8   `88b.  8       Y8P")
+    print("    `888'     888      888  888       8          `888.8'  `888.8'      888   8     `88b.8       `8'")
+    print("     888      `88b    d88'  `88.    .8'           `888'    `888'       888   8       `888       .o.")
+    print("    o888o      `Y8bood8P'     `YbodP'              `8'      `8'       o888o o8o        `8       Y8P")
+    print("                                                                                                   ")
+    print("                                                                                                   ")
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    print("")
+
+    sys.exit()
+
 
 # This is the entry point of our program
 def main():
@@ -158,23 +161,7 @@ def main():
         command = menu()
 
         # Execute the player's command
-        execute_command(command)
-
-        if win_condition_met():
-            break
-    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-    print("                                                                                                   ")
-    print("                                                                                                   ")
-    print("oooooo   oooo   .oooooo.   ooooo     ooo     oooooo   oooooo     oooo ooooo ooooo      ooo      .o.")
-    print(" `888.   .8'   d8P'  `Y8b  `888'     `8'      `888.    `888.     .8'  `888' `888b.     `8'      888")
-    print("  `888. .8'   888      888  888       8        `888.   .8888.   .8'    888   8 `88b.    8       888")
-    print("   `888.8'    888      888  888       8         `888  .8'`888. .8'     888   8   `88b.  8       Y8P")
-    print("    `888'     888      888  888       8          `888.8'  `888.8'      888   8     `88b.8       `8'")
-    print("     888      `88b    d88'  `88.    .8'           `888'    `888'       888   8       `888       .o.")
-    print("    o888o      `Y8bood8P'     `YbodP'              `8'      `8'       o888o o8o        `8       Y8P")
-    print("                                                                                                   ")
-    print("                                                                                                   ")
-    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        execute_command(command) 
 
 
 if __name__ == "__main__":

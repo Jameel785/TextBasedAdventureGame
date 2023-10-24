@@ -13,7 +13,6 @@ class Item():
 
 item_blunderbuss = ("blunderbuss", "blunderbuss", "blast your enemies back to the 18th century.", 45, 10)
 
-
 item_frog = ("frog", "a friendly frog", "will follow you and lick the eyes of your enemies causing damage", 5, 0)
 
 item_swatter = ("swatter", "a venemous fly swatter", "provides poison damage over time. damage for 3 turns.", 10, 5)

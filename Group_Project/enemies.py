@@ -1,11 +1,11 @@
 #OOP for the enemies
 
-from player import player
+from player import Player
 from items import *
 
 
 class Enemy():
-    def __init__(self, name, health, damage_per_hit, items, current_room):
+    def __init__(self, name, health, damage_per_hit, items):
         self.name = name
         self.health = health
         self.damage_per_hit = damage_per_hit
@@ -48,8 +48,12 @@ class Enemy():
         
             
             
+#defining each enemy for each room
+first_year_room_4 = Enemy("First Year", 50, 10, ["rock"], "")
 
-first_year = Enemy("First Year", 50, 10, ["rock"], "")
+first_year_room_5_1 = Enemy("First Year", 50, 10, ["rock"], "")
+first_year_room_5_2 = Enemy("First Year", 50, 10, ["rock"], "")
+
 
 mature_first_year = Enemy("Mature First Year", 70, 20, ["bare fists", "glasses"], "")
 

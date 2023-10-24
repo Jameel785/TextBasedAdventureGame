@@ -1,6 +1,6 @@
 import string
 
-# List of "unimportant" words
+# List of "unimportant" words to be removed from user inputs
 skip_words = ['a', 'about', 'all', 'an', 'another', 'any', 'around', 'at',
               'bad', 'beautiful', 'been', 'better', 'big', 'can', 'every', 'for',
               'from', 'good', 'have', 'her', 'here', 'hers', 'his', 'how',

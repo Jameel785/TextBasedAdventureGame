@@ -146,6 +146,9 @@ class Enemy():
         
 
     def drop_items(self):
+        """This method drops items from the dead enemies
+        and allows the player to pick them up from the room"""
+        
         overall_weight = 0
         for item in self.items:
             overall_weight += item["weight"]

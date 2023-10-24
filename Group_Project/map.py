@@ -3,7 +3,7 @@ from items import *
 class Room():
     def __init__(self, name, description, exits, enemies=None):
         self.name = name
-        self.description = ""
+        self.description = description
         self.exits = exits
         self.enemies = enemies
     
@@ -14,21 +14,32 @@ class Room():
                 print("GO " + direction.upper() + " to " + self.exits[direction] + ".")
 
 
-    def print_Room(self):
+    def list_of_enemies(self):
+        """This methods takes all the items in the players 
+        inventory and places them in a formatted list"""
+
+        enemies_string = ""
+        for enemies in self.enemies:
+            enemies_string += (enemies.items + ", ")
+        enemies_string = enemies_string[:-2]
+        return enemies_string
+    
+
+    def print_room(self):
         """This function takes a Room as an input and nicely displays its name,
         description and items within it."""
         
         print("\n" + self.name.upper())
         print("\n" + self.description + "\n")
-        self.print_Room_items()
+        self.print_enemies()
 
 
-    def print_Room_items(self):
+    def print_enemies(self):
         """This function takes a Room as an input and nicely displays a list of items
         found in this Room (followed by a blank line). If there are no items in
         the Room, nothing is printed."""
         
-        if len(self.items) > 0:
+        if len(self.enemies) > 0:
             print("There is", self.list_of_items(), "here. \n")
 
     
@@ -45,7 +56,7 @@ class Room():
     
 
 #1
-Lecture_Room = (
+Lecture_Room = Room(
     "Lecture Room",
 
     """You are in the lecture Room for computer science.
@@ -57,7 +68,7 @@ Lecture_Room = (
 )
 
 #2
-Computer_lab = (
+Computer_lab = Room(
     "Computer Lab", 
     
     """You are now in the computer suite.
@@ -69,7 +80,7 @@ Computer_lab = (
 )
 
 #3
-Seminar_Room = (
+Seminar_Room = Room(
     "Seminar Room",
     
     """You are now in the seminar Room.
@@ -82,7 +93,7 @@ Seminar_Room = (
 )
 
 #4
-The_Great_hall = (
+The_Great_hall = Room(
     "The Great Hall",
 
     """You are now in the great hall of the student union.
@@ -93,7 +104,7 @@ The_Great_hall = (
 )
 
 #5
-The_Taff = (
+The_Taff = Room(
     "The Taff",
 
     """You are now in the taff.
@@ -105,7 +116,7 @@ The_Taff = (
 )
 
 #6
-The_Lounge = (
+The_Lounge = Room(
     "The Lounge",
 
     """You are now in the lounge.
@@ -116,7 +127,7 @@ The_Lounge = (
 )
 
 #7
-Love_Cardiff_shop = (
+Love_Cardiff_shop = Room(
     "Love Cardiff Shop",
 
     """You are now in the Love Cardiff Shop.
@@ -129,7 +140,7 @@ Love_Cardiff_shop = (
 )
 
 #8
-Ferris_wheel = (
+Ferris_wheel = Room(
     "Ferris Wheel",
 
     """You are now at the giant Ferris wheel in the Cardiff Bay.
@@ -142,7 +153,7 @@ Ferris_wheel = (
 )
 
 #9
-Cardiff_docks = (
+Cardiff_docks = Room(
     "Cardiff Docks",
 
     """You are now at the Cardiff bay and docks.
@@ -153,7 +164,7 @@ Cardiff_docks = (
 )
 
 #10
-Roald_Dahl_plass = (
+Roald_Dahl_plass = Room(
     "Roald Dahl Plass",
 
     """You are now at the roald dahl plass.
@@ -164,71 +175,91 @@ Roald_Dahl_plass = (
 )
 
 #11
-Millenium_centre = (
+Millenium_centre = Room(
     "Millenium Centre",
+
+    """Description goes here""",
 
     {"east":"Ferris Wheel", "south":"Cardiff Docks"}
 )
 
 #12
-The_Senedd_1 = (
+The_Senedd_1 = Room(
     "The Senedd Room 1",
+    
+    """Description goes here""",
 
     {"north":"The Senedd Room 2"}
 )
 
 #13
-The_Senedd_2 = (
+The_Senedd_2 = Room(
     "The Senedd Room 2",
+    
+    """Description goes here""",
 
     {"east":"Millenium Centre"}
 )
 
 #14
-Cardiff_museum = (
+Cardiff_museum = Room(
     "Queens Arcade",
+    
+    """Description goes here""",
 
     {"north":"Cardiff Museum"}
 )
 
 #15
-Queens_arcade = (
+Queens_arcade = Room(
     "Cardiff Museum",
+    
+    """Description goes here""",
 
     {"north":"Cardiff Castle", "east":"Principality Stadium", "west":"NQ64"}
 )
 
 #16
-NQ64 = (
+NQ64 = Room(
     "NQ64",
+    
+    """Description goes here""",
 
     {"north":"The Earnest Willows", "east":"Cardiff Museum"}
 )
 
 #17
-The_Earnest_willows = (
+The_Earnest_willows = Room(
     "The Earnest Willows",
+    
+    """Description goes here""",
 
     {"north":"The Prince of Wales"}
 )
 
 #18
-The_Prince_of_Wales = (
+The_Prince_of_Wales = Room(
     "The Prince of Wales",
+    
+    """Description goes here""",
 
     {"south":"NQ64"}
 )
 
 #19
-Principality_stadium = (
+Principality_stadium = Room(
     "Principality Stadium",
+    
+    """Description goes here""",
 
     {"west":"Cardiff Museum"}
 )
 
 #20
-Cardiff_castle = (
+Cardiff_castle = Room(
     "Cardiff Castle",
+    
+    """Description goes here""",
 
     {"north":"END"}
 )

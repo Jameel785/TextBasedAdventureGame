@@ -83,8 +83,6 @@ class Player():
         the max weight the player can carry it asks them to drop 
         a specific item"""
 
-        print(self.name)
-
         weight = 0
         for item in self.inventory:
             weight += item.weight

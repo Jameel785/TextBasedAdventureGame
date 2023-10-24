@@ -1,10 +1,6 @@
 #OOP for the player
 
 from items import *
-from map import rooms
-
-#Could add:
-#Different strengths and weaknesses
 
 
 class Player():
@@ -15,8 +11,9 @@ class Player():
         self.current_room = current_room
 
         self.inventory = inventory
-        self.weight = self.weight_calculator()
         self.max_weight = max_weight
+        self.weight = self.weight_calculator()
+
 
 
     def remove_health(self, damage):
@@ -61,8 +58,6 @@ class Player():
             print("You have picked up the", item.name + ".") # maybe add item name later
             
         
-
-    
     def list_of_items(self):
         """This methods takes all the items in the players 
         inventory and places them in a formatted list"""
@@ -72,6 +67,7 @@ class Player():
             item_string += (item.items + ", ")
         item_string = item_string[:-2]
         return item_string
+
 
     def print_inventory_items(self):
         """This method prints out all the items in the players 
@@ -86,6 +82,8 @@ class Player():
         the user and if the weight of these items is greater than
         the max weight the player can carry it asks them to drop 
         a specific item"""
+
+        print(self.name)
 
         weight = 0
         for item in self.inventory:
@@ -113,5 +111,4 @@ class Player():
 
             
 
-#This allows starts the players journeys
-player = Player(100, 15, rooms["Lecture_room"], {item_health, item_health, item_rock}, 20)      
+    

@@ -1,10 +1,13 @@
 #This is the program which contains most of the important ascpects to the game such as the game loop
 
 from map import rooms
-from player import player
+from player import Player
 from items import *
 from game_parser import *
 from enemies import *
+
+#This allows starts the players journeys
+player = Player(100, 15, rooms["Lecture Room"], {item_health, item_health, item_rock}, 20)  
 
 
 def print_menu():

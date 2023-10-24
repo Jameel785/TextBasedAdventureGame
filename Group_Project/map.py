@@ -1,11 +1,10 @@
 from items import *
 
 class Room():
-    def __init__(self, name, description, exits, items, enemies):
+    def __init__(self, name, description, exits, enemies=None):
         self.name = name
-        self.description = description
+        self.description = ""
         self.exits = exits
-        self.items = items
         self.enemies = enemies
     
     def print_all_exits_name(self):
@@ -37,23 +36,12 @@ class Room():
         return direction in self.exits
 
 
-    def list_of_items(self):
-        """This methods takes all the items in the players 
-        inventory and places them in a formatted list"""
-
-        item_string = ""
-        for item in self.items:
-            item_string += (item.name + ", ")
-        item_string = item_string[:-2]
-        return item_string
-
-
     def exit_leads_to(self, direction):
         """This function takes a dictionary of exits and a direction (a particular
         exit taken from this dictionary). It returns the name of the Room into which
         this exit leads."""
         
-        return Rooms[self.exits[direction]].name
+        return rooms[self.exits[direction]].name
     
 
 #1
@@ -245,7 +233,7 @@ Cardiff_castle = (
     {"north":"END"}
 )
 
-Rooms = {
+rooms = {
     "Lecture Room":Lecture_Room,
     "Computer lab":Computer_lab,
     "Seminar Room":Seminar_Room,

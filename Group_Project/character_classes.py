@@ -34,6 +34,20 @@ class Player():
         True for dead and False for not dead"""
 
         if self.health <= 0:
+            
+            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("                                                                                           ")
+            print("                                                                                           ")
+            print("oooooo   oooo   .oooooo.   ooooo     ooo     oooooooooo.   ooooo oooooooooooo oooooooooo.  ")
+            print(" `888.   .8'   d8P'  `Y8b  `888'     `8'     `888'   `Y8b  `888' `888'     `8 `888'   `Y8b ")
+            print("  `888. .8'   888      888  888       8       888      888  888   888          888      888")
+            print("   `888.8'    888      888  888       8       888      888  888   888oooo8     888      888")
+            print("    `888'     888      888  888       8       888      888  888   888    '     888      888")
+            print("     888      `88b    d88'  `88.    .8'       888     d88'  888   888       o  888     d88'")
+            print("    o888o      `Y8bood8P'     `YbodP'        o888bood8P'   o888o o888ooooood8 o888bood8P'  ")
+            print("                                                                                           ")
+            print("                                                                                           ")
+            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
             return True
         else:
             return False

@@ -1,14 +1,15 @@
 #OOP for the enemies
 
 from player import player
+from items import *
 
 
 class Enemy():
-    def __init__(self, name, health, damage_per_hit, weapon,  items, current_room):
+    def __init__(self, name, health, damage_per_hit, items, current_room):
         self.name = name
         self.health = health
         self.damage_per_hit = damage_per_hit
-        self.weapon = weapon
+        self.weapon = items[0]
         self.items = items
 
     def remove_health(self, damage):
@@ -24,6 +25,7 @@ class Enemy():
 
         self.health += healing
 
+
     def is_dead(self):
         """This method checks if the health of an enemy is 
         less than zero (if they are dead) and returns if 
@@ -35,29 +37,37 @@ class Enemy():
         else:
             return False
         
+
     def drop_items(self):
         overall_weight = 0
         for item in self.items:
             overall_weight += item["weight"]
         for item in self.items:
-            player.current_room.inventory.append(item)
+            player.pick_up_item(item, self)
+            self.items.remove(item)
         
             
             
 
-first_year = Enemy("First Year", 50, 10, "macbook", ["4 cans of cider", "hoodie", "macbook"], "")
+first_year = Enemy("First Year", 50, 10, ["rock"], "")
 
-mature_first_year = Enemy("Mature First Year", 70, 20, "bare hands", ["money", "gold ring", "key"], ["The_Taff", "The_Lounge", "Love_Cardiff_shop"])
+mature_first_year = Enemy("Mature First Year", 70, 20, ["bare fists", "glasses"], "")
 
-second_year = Enemy("Second Year", 80, 25, ["hot coffee", "knives"], ["knives", "car keys"], "")
+second_year = Enemy("Second Year", 80, 25, ["lynx africa", "glasses"], "")
 
-society_president = Enemy("Society President", 200, 30, "big red sword", ["big red sword", "Shield", "key"], "The_Senedd")
+second_year = Enemy("Second Year", 80, 25, ["lynx africa", "glasses", "health potion"], "")
 
-phd_student = Enemy("PHD Student", 120, 35, "walking stick", ["doctor certificate", "ak47", "walking stick"], "")
+communist_society_president = Enemy("Communist Society President", 200, 30, ["shield", "Communist Manifesto" "room 14 key"], "")
 
-medicine_student = Enemy("Medicine Student", 160, 40, ["stethoscope", "syringe"], ["syringe", "scissors", "dictionary", "stethoscope", "bag of money"], "The_Prince_of_Wales")
+mark_drakeford = Enemy("Mark Drakeford", 120, 35, ["swatter", "Peitho's voice"], "")
 
-professor_stuart_allen = Enemy("Professor Student Allen", 200, 50, ["firing book", "teaching associates robots"], "cris", "")
+phd_student = Enemy("PHD Student", 120, 35, ["shovel", "timberland boots"], "")
+
+medicine_student = Enemy("Medicine Student", 160, 40, ["spine", "frog", "health potion"], "")
+
+law_student = Enemy("Law Student", 160, 40, ["mallet", "necklace"], "")
+
+professor_stuart_allen = Enemy("Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"], "")
 
                 
             

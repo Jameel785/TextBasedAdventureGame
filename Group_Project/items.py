@@ -16,9 +16,9 @@ item_blunderbuss = ("blunderbuss-firearm", "blunderbuss", "blast your enemies ba
 
 item_swatter = ()
 
-item_key2 = ()
+room_20_key = ()
 
-item_key1 = ()
+room_14_key = ()
 
 item_health = ()
 
@@ -40,26 +40,45 @@ item_glasses = ()
 
 item_mallet = ()
 
-item_africa = ()
+item_lynx_africa = ()
 
 item_GPU = ()
 
+item_bare_fists = ()
+
+item_coffee = ()
+
+item_shield = ()
+
+item_peitho_voice = ()
+
+item_boss_bare_fist = ()
+
+Chris = ()
+
+
 items = {
     "gpu": item_GPU,
-    "lynx_africa": item_africa,
+    "lynx africa": item_lynx_africa,
     "mallet": item_mallet,
     "glasses": item_glasses,
-    "timberland_boots": item_boots,
+    "timberland boots": item_boots,
     "shovel": item_shovel,
     "frog": item_frog,
     "spine": item_spine,
     "gloves": item_gloves,
     "rock": item_rock,
     "necklace": item_necklace,
-    "health_potion": item_health,
-    "key1": item_key1,
-    "key2": item_key2,
+    "health potion": item_health,
+    "room 14 key": room_14_key,
+    "room 20 key": room_20_key,
     "swatter": item_swatter,
     "blunderbuss": item_blunderbuss,
+    "bare fists": item_bare_fists,
+    "coffee": item_coffee,
+    "shield": item_shield,
+    "Peitho's voice": item_peitho_voice,
+    "boss bare fist": item_boss_bare_fist,
+    "Chris": Chris
 }
 

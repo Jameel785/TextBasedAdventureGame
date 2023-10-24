@@ -43,6 +43,7 @@ def execute_take(item_id):
     for item in player.current_room.items:
         if item_id == item.id:
             player.pick_up_item(item)
+            player.current_room.items.remove(item)
             taken -= True
 
     if taken == False:

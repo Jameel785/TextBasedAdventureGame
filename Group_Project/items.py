@@ -1,5 +1,6 @@
 from player import Player
 
+#class for the items heald by players, enemies, and rooms
 
 class Item():
     def __init__(self, id, name, description, damage_increase, weight):
@@ -10,7 +11,7 @@ class Item():
         self.weight = weight
 
 
-
+#item class name          item id      name of item     decription of item                        damage  weight
 item_blunderbuss = Item("blunderbuss", "blunderbuss", "blast your enemies back to the 18th century.", 45, 10)
 
 item_frog = Item("frog", "a friendly frog", "will follow you and lick the eyes of your enemies causing damage", 5, 0)
@@ -56,7 +57,10 @@ item_boss_bare_fist = Item("boss_bare_fist", "Stuart Allen's mighty hands", "The
 Chris = Item("Chris", "Chris", "The love of Kirill's life", 0, 0)
 
 
-items = {
+items = {  
+
+    #a dictionary storing all the items under the name items for ease of access.    
+
     "gpu": item_GPU,
     "lynx africa": item_lynx_africa,
     "mallet": item_mallet,

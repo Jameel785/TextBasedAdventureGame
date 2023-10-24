@@ -2,8 +2,8 @@
 
 from items import *
 
-
-class Player():
+#this class stores information about the player to be feteched from other locations around the program
+class Player():     
     def __init__(self, health, damage_per_hit, current_room, inventory, max_weight):
         self.name = "Kirill"
         self.health = health
@@ -89,10 +89,13 @@ class Player():
 
         while weight > self.max_weight:
             item_dropped = int(input("You cannot carry this many items, please drop one \n"+ self.list_of_items() + "\n >>"))
+
+            """this while loop ensures the player drops the required
+            amount of weight in order to continue playing the game """
             
             count = 0
             for item in self.inventory:
-                if item.name == item_dropped:
+                if item.name == item_dropped:   
                     self.drop_item(item)
                     weight -= item.weight
                     count += 1

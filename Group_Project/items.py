@@ -45,17 +45,17 @@ item_lynx_africa = ("lynx_africa","a can of lynx aftrica","severely toxic to any
 
 item_GPU = ("gpu","an ASUS ROG strix gaming RTX 4090 ti extreme blue eddition","has more names than an italian painter and is the size and weight of a cinder block. can hit enemies with it.",50,20,None)
 
-item_bare_fists = ()
+item_bare_fists = ("fist","your bare fists","pure skill and avbility no hadicaps here",5,0,None)
 
-item_coffee = ()
+item_coffee = ("coffie","a pretentiously brewed coffee","may cause caffeen addiction. restores 45 health.",0,4,None)
 
-item_shield = ()
+item_shield = ("shield","a great warriors shield (skate board)","negate incoming attacks from enemies ONLY if you can land a kickflip",0,8,None)
 
-item_peitho_voice = ()
+item_peitho_voice = ("speach","a magical captivating yaping ability","gives the user an incredibaly compelling voice that fills the room with definately not paid actors forced to listen",0,0,None)
 
-item_boss_bare_fist = ()
+item_boss_bare_fist = ("boss_hands","the bosses hands","you will probobly die to these atleast once", 50,100,None)
 
-Chris = ()
+Chris = ("chris","chris","chris",0,0,None)
 
 
 items = {

@@ -1,0 +1,342 @@
+from items import *
+from map import Room
+from character_classes import Enemy, Player
+    
+#defining each enemy for each room
+first_year_room_4 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+
+first_year_room_5_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+first_year_room_5_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+
+mature_first_year_room_6_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+first_year_room_6_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+first_year_room_6_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+
+second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
+mature_first_year_room_7_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+mature_first_year_room_7_2 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+
+second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
+second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
+
+buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses", "health potion"])
+
+communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto" "room 14 key"])
+first_year_room_room_12_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+first_year_room_room_12_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+
+
+mark_drakeford_room_13_1 = Enemy("Mark", "Mark Drakeford", 120, 35, ["swatter", "speech"])
+
+phd_student_room_16_1 = Enemy("PHD", "PHD Student", 120, 35, ["shovel", "timberland boots"])
+
+medicine_student_room_18_1 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog", "health potion"])
+medicine_student_room_18_2 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog", "health potion"])
+law_student_room_18 = Enemy("Law_Student", "Law Student", 160, 40, ["mallet", "necklace", "Stuart Allen's Mum"])
+
+professor_stuart_allen_room_20 = Enemy("Prof_Stuart", "Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
+
+
+
+#1
+Lecture_Room = Room(
+    "Lecture Room",
+
+"""
+You are in the lecture Room for computer science.
+The odour of sweaty armpits and stale deodorant is rampant.
+Alongside is empty bottles of energy drinks on the floor.
+There are rows of seats lined across the hall with a large whiteboard stacked at the end of the lecture hall.""",
+
+    {"north":"Computer Lab", "east":"Seminar Room", "south":"The Great Hall"},
+
+    []
+)
+
+#2
+Computer_lab = Room(
+    "Computer Lab", 
+    
+"""
+You are now in the computer suite.
+There are rows upon rows of personal computers hooked up to cheap monitors on the desks.
+On the desks are empty plug sockets and turned off switches.
+The keyboards are full of breadcrumbs and surrounded by empty crisp packets.""", 
+    
+    {"south":"Lecture Room"}, 
+
+    []
+)
+
+#3
+Seminar_Room = Room(
+    "Seminar Room",
+    
+"""
+You are now in the seminar Room.
+There are desks upon desks littered across the Room.
+On top of the desks are piles of scribbled paper sheets and empty pencil cases.""",
+    
+    {"west":"Lecture Room"},
+
+    []
+)
+
+#4
+The_Great_hall = Room(
+    "The Great Hall",
+
+"""
+You are now in the great hall of the student union.
+Surrounding you is vast plains of empty space, with left over cardboard cutouts from the previous freshers fair.
+With a capacity of over 1,600 people, there is no shortage of empty space here.""",
+
+    {"north":"Lecture Room", "east":"Seminar Room", "south":"The Taff", "west":"The Lounge"},
+
+    [first_year_room_4]
+)
+
+#5
+The_Taff = Room(
+    "The Taff",
+
+"""
+You are now in the taff.
+The taff is the local pub built into the student union.
+The stench of cheap beer and stale lager is rampant.
+The floor is littered with empty beer bottles and tissues.""",
+
+    {"north":"The Great Hall", "east":"Love Cardiff Shop"},
+
+    [first_year_room_5_1, first_year_room_5_2]
+)
+
+#6
+The_Lounge = Room(
+    "The Lounge",
+
+"""
+You are now in the lounge.
+Around you are study spaces where students could sit and chat.
+There are also play areas filled with table tennis tables and pool tables.""",
+
+    {"north":"Lecture Room","east":"The Great Hall"},
+
+    [mature_first_year_room_6_1, first_year_room_6_1, first_year_room_6_2]
+)
+
+#7
+Love_Cardiff_shop = Room(
+    "Love Cardiff Shop",
+
+"""
+You are now in the Love Cardiff Shop.
+Inside the store are rows upon rows of stacked clothing.
+T-shirts and crew neck jumpers marked at half price.
+There are receipt papers and coat hangers littered across the floor.""",
+
+    {"east":"Ferris Wheel"},
+
+    [second_year_room_7_1, mature_first_year_room_7_1, mature_first_year_room_7_2]
+)
+
+#8
+Ferris_wheel = Room(
+    "Ferris Wheel",
+
+"""
+You are now at the giant Ferris wheel in the Cardiff Bay.
+The Cardiff bay has endless seagulls and birds scattered across its coats.
+The sea is deep blue and its sand is bright white.
+The Ferris wheel itself stand large and tall.
+It is easily the largest structure in Cardiff bay.""",
+
+    {"north":"Queens Arcade", "south":"Cardiff Docks", "west":"Millenium Centre"},
+
+    []
+)
+
+#9
+Cardiff_docks = Room(
+    "Cardiff Docks",
+
+"""
+You are now at the Cardiff bay and docks.
+There are boats surrounding the entire area.
+Seagulls are squeaking as they are flying through the air and the sky has a bright blue hue to it.""",
+
+    {"north":"Ferris Wheel", "south":"Roald Dahl Plass"},
+
+    [second_year_room_9_1, second_year_room_9_2]
+)
+
+#10
+Roald_Dahl_plass = Room(
+    "Roald Dahl Plass",
+
+"""
+You are now at the roald dahl plass.
+This is a plaza with plenty of places to eat and drink and it is surrounded by illuminated pillars.
+The smell of burnt popcorn and cotton candy has filled the air and there is magical atmosphere which fills your mood.""",
+
+    {"north":"Cardiff Docks", "east":"Seminar Room", "west":"The Senedd Room 1"},
+
+    []
+)
+
+#11
+Millenium_centre = Room(
+    "Millenium Centre",
+
+"""Description goes here""",
+
+    {"east":"Ferris Wheel", "south":"Cardiff Docks"},
+
+    [buff_art_second_year_room_11]
+)
+
+#12
+The_Senedd_1 = Room(
+    "The Senedd Room 1",
+    
+"""Description goes here""",
+
+    {"north":"The Senedd Room 2"},
+
+    [communist_society_president_room_12_1, first_year_room_room_12_1, first_year_room_room_12_2]
+)
+
+#13
+The_Senedd_2 = Room(
+    "The Senedd Room 2",
+
+"""Description goes here""",
+
+    {"east":"Millenium Centre"},
+
+    [mark_drakeford_room_13_1]
+)
+
+#14
+Cardiff_museum = Room(
+    "Queens Arcade",
+    
+"""Description goes here""",
+
+    {"north":"Cardiff Museum"},
+
+    []
+)
+
+#15
+Queens_arcade = Room(
+    "Cardiff Museum",
+    
+"""Description goes here""",
+
+    {"north":"Cardiff Castle", "east":"Principality Stadium", "west":"NQ64"},
+
+    []
+)
+
+#16
+NQ64 = Room(
+    "NQ64",
+    
+"""Description goes here""",
+
+    {"north":"The Earnest Willows", "east":"Cardiff Museum"},
+
+    [phd_student_room_16_1]
+)
+
+#17
+The_Earnest_willows = Room(
+    "The Earnest Willows",
+    
+"""Description goes here""",
+
+    {"north":"The Prince of Wales"},
+
+    []
+)
+
+#18
+The_Prince_of_Wales = Room(
+    "The Prince Of Wales",
+    
+"""Description goes here""",
+
+    {"south":"NQ64"},
+
+    [medicine_student_room_18_1, medicine_student_room_18_2, law_student_room_18]
+)
+
+#19
+Principality_stadium = Room(
+    "Principality Stadium",
+    
+"""Description goes here""",
+
+    {"west":"Cardiff Museum"},
+
+    []
+)
+
+#20
+Cardiff_castle = Room(
+    "Cardiff Castle",
+    
+"""Description goes here""",
+
+    {"north":"END"},
+
+    [professor_stuart_allen_room_20]
+)
+
+rooms = {
+    "Lecture Room":Lecture_Room,
+    "Computer Lab":Computer_lab,
+    "Seminar Room":Seminar_Room,
+    "The Great Hall":The_Great_hall,
+    "The Taff":The_Taff,
+    "The Lounge":The_Lounge,
+    "Love Cardiff Shop":Love_Cardiff_shop,
+    "Ferris Wheel":Ferris_wheel,
+    "Cardiff Docks":Cardiff_docks,
+    "Roald Dahl Plass":Roald_Dahl_plass,
+    "The Senedd Room 1":The_Senedd_1,
+    "Millennium Centre":Millenium_centre,
+    "The Senedd Room 2":The_Senedd_2,
+    "Queens Arcade":Queens_arcade,
+    "Cardiff Museum":Cardiff_museum,
+    "NQ64":NQ64,
+    "The Earnest Willows":The_Earnest_willows,
+    "The Prince Of Wales":The_Prince_of_Wales,
+    "Principality Stadium":Principality_stadium,
+    "Cardiff Castle":Cardiff_castle
+}
+
+#first_year_room = Enemy("First Year", 50, 10, ["rock"])
+
+#mature_first_year = Enemy("Mature First Year", 70, 20, ["bare fists", "glasses"])
+
+#second_year = Enemy("Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
+
+#communist_society_president = Enemy("Communist Society President", 200, 30, ["shield", "Communist Manifesto" "room 14 key"])
+
+#mark_drakeford = Enemy("Mark Drakeford", 120, 35, ["swatter", "Peitho's voice"])
+
+#phd_student = Enemy("PHD Student", 120, 35, ["shovel", "timberland boots"])
+
+#medicine_student = Enemy("Medicine Student", 160, 40, ["spine", "frog", "health potion"])
+
+#law_student = Enemy("Law Student", 160, 40, ["mallet", "necklace"])
+
+#professor_stuart_allen = Enemy("Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
+
+
+
+
+#This allows starts the players journeys
+player = Player(100, 15, rooms["Lecture Room"], ["potion", "potion", "rock"], 20)  

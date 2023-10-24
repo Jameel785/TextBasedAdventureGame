@@ -1,13 +1,9 @@
 #This is the program which contains most of the important ascpects to the game such as the game loop
 
-from map import rooms
-from player import Player
+from instance_creator import *
 from items import *
 from game_parser import *
-from enemies import *
 
-#This allows starts the players journeys
-player = Player(100, 15, rooms["Lecture Room"], {item_health, item_health, item_rock}, 20)  
 
 
 def print_menu():
@@ -17,10 +13,13 @@ def print_menu():
     player.current_room.print_all_exits_name()
     
     for item in player.current_room.items:
-        print("TAKE", item.id.upper(), "to take a", item.name)
+        print("TAKE", items[item].id.upper(), "to take", items[item].name)
 
     for item in player.inventory:
-        print("DROP", item.id.upper(), "to drop your", item.name)
+        print("DROP", items[item].id.upper(), "to drop your", items[item].name)
+
+    for enemy in player.current_room.enemies:
+        print("ATTACK", enemy.name.upper(), "to start a battle with")
     print(" ")
 
     print("What do you want to do?")
@@ -34,6 +33,7 @@ def execute_go(direction):
 
     
     if player.current_room.is_valid_exit(direction):
+        print(player.current_room.exits[direction])
         player.current_room = rooms[player.current_room.exits[direction]]
     
 
@@ -44,9 +44,8 @@ def execute_take(item_id):
     
     taken = False
     for item in player.current_room.items:
-        if item_id == item.id:
+        if item_id == items[item].id:
             player.pick_up_item(item)
-            player.current_room.items.remove(item)
             taken -= True
 
     if taken == False:
@@ -58,15 +57,37 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."""
 
-    picked_up = False
-    for item in player.inventory:
-        if item_id == item.id:
-            player.current_room.items.append(item)
-            player.drop_item(item)
-            picked_up = True
+    print(type(item_id))
 
-    if picked_up:
-        print("You cannot drop that.")
+    picked_up = False
+    count = 0
+
+    while not picked_up:
+        if item_id == items[player.inventory[count]].id:
+            player.drop_item(player.inventory[count])
+            picked_up = True
+        
+        elif picked_up:
+            print("You cannot drop that.")
+    
+        count += 1
+
+    # picked_up = False
+
+    # try:
+    #     for item in player.inventory:
+    #         if item_id == items[item].id:
+    #             player.drop_item(item)
+    #             picked_up = True
+            
+    #         elif picked_up:
+    #             print("You cannot drop that.")
+    #             break
+                
+    # except RuntimeError:
+    #     pass
+
+    print(player.inventory)
     
     
 
@@ -133,7 +154,7 @@ def main():
         player.print_inventory_items()
 
         # Show the menu with possible actions and ask the player
-        command = menu(player.current_room.exits, player.current_room.items)
+        command = menu()
 
         # Execute the player's command
         execute_command(command)

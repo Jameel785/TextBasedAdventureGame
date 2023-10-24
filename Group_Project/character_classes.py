@@ -1,6 +1,6 @@
-#OOP for the player
+from items import items
 
-from items import *
+#OOP for the player
 
 class Player():
     def __init__(self, health, damage_per_hit, current_room, inventory, max_weight):
@@ -41,20 +41,21 @@ class Player():
         
     def drop_item(self, item):
         """This method allows the user to drop a specified item"""
-
+        
         self.inventory.remove(item)
-        print("You have dropped,", item.name)
-
+        print("You have dropped your", items[item].name + ".")
         self.current_room.items.append(item)
 
 
     def pick_up_item(self, item):
         """This method allows the user to pick up a specified item"""
 
-        self.inventory.append(item)
+        self.current_room.items.remove(item)
         if self.weight_calculator():
-            print("You have picked up the", item.name + ".") # maybe add item name later
-            
+            print("You have picked up the", item.name + ".")
+        self.inventory.append(item)
+        self.inventory = sorted(self.inventory)
+
         
     def list_of_items(self):
         """This methods takes all the items in the players 
@@ -62,7 +63,7 @@ class Player():
 
         item_string = ""
         for item in self.inventory:
-            item_string += (item.items + ", ")
+            item_string += (items[item].name + ", ")
         item_string = item_string[:-2]
         return item_string
 
@@ -83,7 +84,7 @@ class Player():
 
         weight = 0
         for item in self.inventory:
-            weight += item.weight
+            weight += items[item].weight
 
         while weight > self.max_weight:
             item_dropped = int(input("You cannot carry this many items, please drop one \n"+ self.list_of_items() + "\n >>"))
@@ -106,5 +107,48 @@ class Player():
     
 
 
+#OOP for the enemies
 
-    
+class Enemy():
+    def __init__(self, id, name, health, damage_per_hit, items):
+        self.id = id
+        self.name = name
+        self.health = health
+        self.damage_per_hit = damage_per_hit
+        self.weapon = items[0]
+        self.items = items
+
+
+    def remove_health(self, damage):
+        """This method decreases the health of an enemy by 
+        the damage variable"""
+
+        self.health -= damage
+            
+
+    def add_health(self, healing):
+        """This method increases the health of an enemy by
+        the healing variable"""
+
+        self.health += healing
+
+
+    def is_dead(self):
+        """This method checks if the health of an enemy is 
+        less than zero (if they are dead) and returns if 
+        True for dead and False for not dead"""
+
+        if self.health <= 0:
+            self.drop_items()
+            return True
+        else:
+            return False
+        
+
+    def drop_items(self):
+        overall_weight = 0
+        for item in self.items:
+            overall_weight += item["weight"]
+        for item in self.items:
+            player.current_room.items.append(item)
+            self.items.remove(item)

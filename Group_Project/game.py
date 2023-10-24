@@ -1,5 +1,6 @@
 #This is the program which contains most of the important ascpects to the game such as the game loop
 
+#required information from other programs is imported
 from map import rooms
 from player import Player
 from items import *
@@ -140,9 +141,19 @@ def main():
 
         if win_condition_met():
             break
-
-    print("YOU WIN!!")
-
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    print("                                                                                                   ")
+    print("                                                                                                   ")
+    print("oooooo   oooo   .oooooo.   ooooo     ooo     oooooo   oooooo     oooo ooooo ooooo      ooo      .o.")
+    print(" `888.   .8'   d8P'  `Y8b  `888'     `8'      `888.    `888.     .8'  `888' `888b.     `8'      888")
+    print("  `888. .8'   888      888  888       8        `888.   .8888.   .8'    888   8 `88b.    8       888")
+    print("   `888.8'    888      888  888       8         `888  .8'`888. .8'     888   8   `88b.  8       Y8P")
+    print("    `888'     888      888  888       8          `888.8'  `888.8'      888   8     `88b.8       `8'")
+    print("     888      `88b    d88'  `88.    .8'           `888'    `888'       888   8       `888       .o.")
+    print("    o888o      `Y8bood8P'     `YbodP'              `8'      `8'       o888o o8o        `8       Y8P")
+    print("                                                                                                   ")
+    print("                                                                                                   ")
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
 
 if __name__ == "__main__":

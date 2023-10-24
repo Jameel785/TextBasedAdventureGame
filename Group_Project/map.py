@@ -182,16 +182,16 @@ The_Senedd_2 = {
     "exits":{"east":"Millenium Centre","south":"The Sendd ROOM 2"}
 }
 #14
-Queens_arcade = {
-    "name":"Queens Arcade",
-
-    "exits":{"north":"Cardiff Museum"}
-}
-#15
 Cardiff_museum = {
     "name":"Cardiff Museum",
 
     "exits":{"north":"Cardiff Castle","east":"Principality Stadium","west":"NQ64"}
+}
+#15
+Queens_arcade = {
+    "name":"Queens Arcade",
+
+    "exits":{"north":"Cardiff Museum"}
 }
 #16
 NQ64 = {

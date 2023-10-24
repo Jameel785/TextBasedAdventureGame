@@ -3,7 +3,7 @@
 from game import player
 from items import *
 
-
+#this class stores information about the enemy and how to player will interact with it
 class Enemy():
     def __init__(self, name, health, damage_per_hit, items):
         self.name = name

@@ -15,19 +15,19 @@ class Room():
                 print("GO " + direction.upper() + " to " + self.exits[direction] + ".")
 
 
-    def print_room(self):
-        """This function takes a room as an input and nicely displays its name,
+    def print_Room(self):
+        """This function takes a Room as an input and nicely displays its name,
         description and items within it."""
         
         print("\n" + self.name.upper())
         print("\n" + self.description + "\n")
-        self.print_room_items()
+        self.print_Room_items()
 
 
-    def print_room_items(self):
-        """This function takes a room as an input and nicely displays a list of items
-        found in this room (followed by a blank line). If there are no items in
-        the room, nothing is printed."""
+    def print_Room_items(self):
+        """This function takes a Room as an input and nicely displays a list of items
+        found in this Room (followed by a blank line). If there are no items in
+        the Room, nothing is printed."""
         
         if len(self.items) > 0:
             print("There is", self.list_of_items(), "here. \n")
@@ -50,201 +50,222 @@ class Room():
 
     def exit_leads_to(self, direction):
         """This function takes a dictionary of exits and a direction (a particular
-        exit taken from this dictionary). It returns the name of the room into which
+        exit taken from this dictionary). It returns the name of the Room into which
         this exit leads."""
         
-        return rooms[self.exits[direction]].name
+        return Rooms[self.exits[direction]].name
     
 
 #1
-Lecture_room = {
-    "name":"Lecture Room",
+Lecture_Room = (
+    "Lecture Room",
 
-    "description":"""You are in the lecture room for computer science.
+    """You are in the lecture Room for computer science.
     The odour of sweaty armpits and stale deodorant is rampant.
     Alongside is empty bottles of energy drinks on the floor.
     There are rows of seats lined across the hall with a large whiteboard stacked at the end of the lecture hall.""",
 
-    "exits":{"north":"Computer Lab","east":"Seminar Room","south":"The Great Hall"}
-}
-#2
-Computer_lab = {
-    "name":"Computer Lab",
+    {"north":"Computer Lab", "east":"Seminar Room", "south":"The Great Hall"}
+)
 
-    "description":"""You are now in the computer suite.
+#2
+Computer_lab = (
+    "Computer Lab", 
+    
+    """You are now in the computer suite.
     There are rows upon rows of personal computers hooked up to cheap monitors on the desks.
     On the desks are empty plug sockets and turned off switches.
-    The keyboards are full of breadcrumbs and surrounded by empty crisp packets.""",
+    The keyboards are full of breadcrumbs and surrounded by empty crisp packets.""", 
+    
+    {"south":"Lecture Room"}, 
+)
 
-    "exits":{"south: Lecture Room"}
-} 
 #3
-Seminar_room = {
-    "name":"Seminar Room",
-
-    "description":"""You are now in the seminar room.
-    There are desks upon desks littered across the room.
+Seminar_Room = (
+    "Seminar Room",
+    
+    """You are now in the seminar Room.
+    There are desks upon desks littered across the Room.
     On top of the desks are piles of scribbled paper sheets and empty pencil cases.""",
+    
+    {"west":"Lecture Room"}
 
-    "exits":{"west":"Lecture Room"}
-}
+    
+)
+
 #4
-The_Great_hall = {
-    "name":"The Great Hall",
+The_Great_hall = (
+    "The Great Hall",
 
-    "description":"""You are now in the great hall of the student union.
+    """You are now in the great hall of the student union.
     Surrounding you is vast plains of empty space, with left over cardboard cutouts from the previous freshers fair.
     With a capacity of over 1,600 people, there is no shortage of empty space here.""",
 
-    "exits":{"north":"Lecture Room","east":"Seminar Room","south":"The Taff","west":"The Lounge"}
-}
-#5
-The_Taff = {
-    "name":"The Taff",
+    {"north":"Lecture Room", "east":"Seminar Room", "south":"The Taff", "west":"The Lounge"}
+)
 
-    "description":"""You are now in the taff.
+#5
+The_Taff = (
+    "The Taff",
+
+    """You are now in the taff.
     The taff is the local pub built into the student union.
     The stench of cheap beer and stale lager is rampant.
     The floor is littered with empty beer bottles and tissues.""",
 
-    "exits":{"north":"The Great Hall","east":"Love Cardiff Shop"}
-}
-#6
-The_Lounge = {
-    "name":"The Lounge",
+    {"north":"The Great Hall", "east":"Love Cardiff Shop"}
+)
 
-    "description":"""You are now in the lounge.
+#6
+The_Lounge = (
+    "The Lounge",
+
+    """You are now in the lounge.
     Around you are study spaces where students could sit and chat.
     There are also play areas filled with table tennis tables and pool tables.""",
 
-    "exits":{"north":"Lecture Room","east":"The Great Hall"}
-}
-#7
-Love_Cardiff_shop = {
-    "name":"Love Cardiff Shop",
+    {"north":"Lecture Room","east":"The Great Hall"}
+)
 
-    "description":"""You are now in the Love Cardiff Shop.
+#7
+Love_Cardiff_shop = (
+    "Love Cardiff Shop",
+
+    """You are now in the Love Cardiff Shop.
     Inside the store are rows upon rows of stacked clothing.
     T-shirts and crew neck jumpers marked at half price.
     There are receipt papers and coat hangers littered across the floor.
     """,
 
-    "exits":{"east":"Ferris Wheel"}
-}
-#8
-Ferris_wheel = {
-    "name":"Ferris Wheel",
+    {"east":"Ferris Wheel"}
+)
 
-    "description":"""You are now at the giant Ferris wheel in the Cardiff Bay.
+#8
+Ferris_wheel = (
+    "Ferris Wheel",
+
+    """You are now at the giant Ferris wheel in the Cardiff Bay.
     The Cardiff bay has endless seagulls and birds scattered across its coats.
     The sea is deep blue and its sand is bright white.
     The Ferris wheel itself stand large and tall.
     It is easily the largest structure in Cardiff bay.""",
 
-    "exits":{"north":"Queens Arcade","south":"Cardiff Docks","west":"Millenium Centre"}
-}
-#9
-Cardiff_docks = {
-    "name":"Cardiff Docks",
+    {"north":"Queens Arcade", "south":"Cardiff Docks", "west":"Millenium Centre"}
+)
 
-    "description":"""You are now at the Cardiff bay and docks.
+#9
+Cardiff_docks = (
+    "Cardiff Docks",
+
+    """You are now at the Cardiff bay and docks.
     There are boats surrounding the entire area.
     Seagulls are squeaking as they are flying through the air and the sky has a bright blue hue to it.""",
 
-    "exits":{"north":"Ferris Wheel","south":"Roald Dahl Plass"}
-}
-#10
-Roald_Dahl_plass = {
-    "name":"Roald Dahl Plass",
+    {"north":"Ferris Wheel", "south":"Roald Dahl Plass"}
+)
 
-    "description":"""You are now at the roald dahl plass.
+#10
+Roald_Dahl_plass = (
+    "Roald Dahl Plass",
+
+    """You are now at the roald dahl plass.
     This is a plaza with plenty of places to eat and drink and it is surrounded by illuminated pillars.
     The smell of burnt popcorn and cotton candy has filled the air and there is magical atmosphere which fills your mood.""",
 
-    "exits":{"north":"Cardiff Docks","east":"Seminar Room","west":"The Senedd ROOM 1"}
-}
+    {"north":"Cardiff Docks", "east":"Seminar Room", "west":"The Senedd Room 1"}
+)
+
 #11
-Millenium_centre = {
-    "name":"Millenium Centre",
+Millenium_centre = (
+    "Millenium Centre",
 
-    "exits":{"east":"Ferris Wheel","south":"Cardiff Docks","west":"The Senedd ROOM 1"}
-}
+    {"east":"Ferris Wheel", "south":"Cardiff Docks"}
+)
+
 #12
-The_Senedd_1 = {
-    "name":"The Senedd ROOM 1",
+The_Senedd_1 = (
+    "The Senedd Room 1",
 
-    "exits":{"north":"The Senedd ROOM 2","east":"Millenium Centre","south":"Roald Dahl Pass"}
-}
+    {"north":"The Senedd Room 2"}
+)
+
 #13
-The_Senedd_2 = {
-    "name":"The Senedd ROOM 2",
+The_Senedd_2 = (
+    "The Senedd Room 2",
 
-    "exits":{"east":"Millenium Centre","south":"The Sendd ROOM 2"}
-}
+    {"east":"Millenium Centre"}
+)
+
 #14
-Cardiff_museum = {
-    "name":"Cardiff Museum",
+Cardiff_museum = (
+    "Queens Arcade",
 
-    "exits":{"north":"Cardiff Castle","east":"Principality Stadium","west":"NQ64"}
-}
+    {"north":"Cardiff Museum"}
+)
+
 #15
-Queens_arcade = {
-    "name":"Queens Arcade",
+Queens_arcade = (
+    "Cardiff Museum",
 
-    "exits":{"north":"Cardiff Museum"}
-}
+    {"north":"Cardiff Castle", "east":"Principality Stadium", "west":"NQ64"}
+)
+
 #16
-NQ64 = {
-    "name":"NQ64",
+NQ64 = (
+    "NQ64",
 
-    "exits":{"north":"The Earnest Willows","east":"Cardiff Museum"}
-}
+    {"north":"The Earnest Willows", "east":"Cardiff Museum"}
+)
+
 #17
-The_Earnest_willows = {
-    "name":"The Earnest Willows",
+The_Earnest_willows = (
+    "The Earnest Willows",
 
-    "exits":{"north":"The Prince of Wales"}
-}
+    {"north":"The Prince of Wales"}
+)
+
 #18
-The_Prince_of_Wales = {
-    "name":"The Prince of Wales",
+The_Prince_of_Wales = (
+    "The Prince of Wales",
 
-    "exits":{"west":"NQ64"}
-}
+    {"south":"NQ64"}
+)
+
 #19
-Principality_stadium = {
-    "name":"Principality Stadium",
+Principality_stadium = (
+    "Principality Stadium",
 
-    "exits":{"west":"Cardiff Museum"}
-}
+    {"west":"Cardiff Museum"}
+)
+
 #20
-Cardiff_castle = {
-    "name":"Cardiff Castle",
+Cardiff_castle = (
+    "Cardiff Castle",
 
-    "exits":{"north":"END"}
-}
+    {"north":"END"}
+)
 
-rooms = {
-    "Lecture_room":Lecture_room,
-    "Computer_lab":Computer_lab,
-    "Seminar_room":Seminar_room,
-    "The_Great_hall":The_Great_hall,
-    "The_Taff":The_Taff,
-    "The_Lounge":The_Lounge,
-    "Love_Cardiff_shop":Love_Cardiff_shop,
-    "Ferris_wheel":Ferris_wheel,
-    "Cardiff_docks":Cardiff_docks,
-    "Roald_Dahl_plass":Roald_Dahl_plass,
-    "The_Senedd_ROOM_1":The_Senedd_1,
-    "Millennium_centre":Millenium_centre,
-    "The_Senedd_ROOM_2":The_Senedd_2,
-    "Queens_arcade":Queens_arcade,
-    "Cardiff_museum":Cardiff_museum,
+Rooms = {
+    "Lecture Room":Lecture_Room,
+    "Computer lab":Computer_lab,
+    "Seminar Room":Seminar_Room,
+    "The Great hall":The_Great_hall,
+    "The Taff":The_Taff,
+    "The Lounge":The_Lounge,
+    "Love Cardiff shop":Love_Cardiff_shop,
+    "Ferris wheel":Ferris_wheel,
+    "Cardiff docks":Cardiff_docks,
+    "Roald Dahl plass":Roald_Dahl_plass,
+    "The Senedd Room 1":The_Senedd_1,
+    "Millennium centre":Millenium_centre,
+    "The Senedd Room 2":The_Senedd_2,
+    "Queens arcade":Queens_arcade,
+    "Cardiff museum":Cardiff_museum,
     "NQ64":NQ64,
-    "The_Earnest_willows":The_Earnest_willows,
-    "The_Prince_of_Wales":The_Prince_of_Wales,
-    "Principality_stadium":Principality_stadium,
-    "Cardiff_castle":Cardiff_castle
+    "The Earnest willows":The_Earnest_willows,
+    "The Prince of Wales":The_Prince_of_Wales,
+    "Principality stadium":Principality_stadium,
+    "Cardiff castle":Cardiff_castle
 }
 
 

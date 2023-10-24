@@ -1,10 +1,13 @@
+from game import scrolling_text
+import time
+
 class Room():
-    def __init__(self, name, description, exits, enemies):
+    def __init__(self, name, description, exits, enemies, items):
         self.name = name
         self.description = description
         self.exits = exits
         self.enemies = enemies
-        self.items = []
+        self.items = items
     
     def print_all_exits_name(self):
         directions = ["north", "east", "south", "west"]
@@ -12,6 +15,7 @@ class Room():
             try:
                 if self.exits[direction] is not None:
                     print("GO " + direction.upper() + " to " + self.exits[direction] + ".")
+                    time.sleep(0.5)
             except KeyError:
                 pass
 
@@ -30,8 +34,10 @@ class Room():
         """This function takes a Room as an input and nicely displays its name,
         description and items within it."""
         
-        print("\n" + self.name.upper())
-        print(self.description + "\n")
+        scrolling_text("\n" + self.name.upper())
+        print("")
+        scrolling_text(self.description + "\n ")
+        print("")
         self.print_enemies()
 
 
@@ -52,18 +58,9 @@ class Room():
 
         enemy_string = ""
         for enemy in self.enemies:
-            enemy_string += (enemy.name + ", ")
+            enemy_string += (" a " + enemy.name + ", ")
         enemy_string = enemy_string[:-2]
         return enemy_string
-
-
-    def print_items(self):
-        """This function takes a Room as an input and nicely displays a list of items
-        found in this Room (followed by a blank line). If there are no items in
-        the Room, nothing is printed."""
-        
-        if len(self.items) > 0:
-            print("There is", self.list_of_items(), "here. \n")
 
 
     def print_enemies(self):
@@ -72,19 +69,15 @@ class Room():
         the Room, nothing is printed."""
         
         if len(self.enemies) > 0:
-            print("There is", self.list_of_enemies(), "here. \n")
+            text = "There is", self.list_of_enemies(), " here. \n"
+            scrolling_text(text)
 
     
     def is_valid_exit(self, direction):
+        """returns the value of the key in the directions of the room"""
+        
         return direction in self.exits
 
-
-    def exit_leads_to(self, direction):
-        """This function takes a dictionary of exits and a direction (a particular
-        exit taken from this dictionary). It returns the name of the Room into which
-        this exit leads."""
-        
-        return rooms[self.exits[direction]].name
     
 
 

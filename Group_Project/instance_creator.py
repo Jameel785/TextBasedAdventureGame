@@ -50,6 +50,8 @@ There are rows of seats lined across the hall with a large whiteboard stacked at
 
     {"north":"Computer Lab", "east":"Seminar Room", "south":"The Great Hall"},
 
+    [],
+
     []
 )
 
@@ -65,6 +67,8 @@ The keyboards are full of breadcrumbs and surrounded by empty crisp packets.""",
     
     {"south":"Lecture Room"}, 
 
+    [],
+
     []
 )
 
@@ -78,6 +82,8 @@ There are desks upon desks littered across the Room.
 On top of the desks are piles of scribbled paper sheets and empty pencil cases.""",
     
     {"west":"Lecture Room"},
+
+    [],
 
     []
 )
@@ -93,7 +99,9 @@ With a capacity of over 1,600 people, there is no shortage of empty space here."
 
     {"north":"Lecture Room", "east":"Seminar Room", "south":"The Taff", "west":"The Lounge"},
 
-    [first_year_room_4]
+    [first_year_room_4],
+
+    []
 )
 
 #5
@@ -106,9 +114,11 @@ The taff is the local pub built into the student union.
 The stench of cheap beer and stale lager is rampant.
 The floor is littered with empty beer bottles and tissues.""",
 
-    {"north":"The Great Hall", "east":"Love Cardiff Shop"},
+    {"north":"The Great Hall", "west":"Love Cardiff Shop"},
 
-    [first_year_room_5_1, first_year_room_5_2]
+    [first_year_room_5_1, first_year_room_5_2],
+
+    []
 )
 
 #6
@@ -120,9 +130,11 @@ You are now in the lounge.
 Around you are study spaces where students could sit and chat.
 There are also play areas filled with table tennis tables and pool tables.""",
 
-    {"north":"Lecture Room","east":"The Great Hall"},
+    {"north":"Lecture Room", "east":"The Great Hall"},
 
-    [mature_first_year_room_6_1, first_year_room_6_1, first_year_room_6_2]
+    [mature_first_year_room_6_1, first_year_room_6_1, first_year_room_6_2],
+
+    []
 )
 
 #7
@@ -135,9 +147,11 @@ Inside the store are rows upon rows of stacked clothing.
 T-shirts and crew neck jumpers marked at half price.
 There are receipt papers and coat hangers littered across the floor.""",
 
-    {"east":"Ferris Wheel"},
+    {"west":"Ferris Wheel"},
 
-    [second_year_room_7_1, mature_first_year_room_7_1, mature_first_year_room_7_2]
+    [second_year_room_7_1, mature_first_year_room_7_1, mature_first_year_room_7_2],
+
+    []
 )
 
 #8
@@ -153,6 +167,8 @@ It is easily the largest structure in Cardiff bay.""",
 
     {"north":"Queens Arcade", "south":"Cardiff Docks", "west":"Millenium Centre"},
 
+    [],
+
     []
 )
 
@@ -167,7 +183,9 @@ Seagulls are squeaking as they are flying through the air and the sky has a brig
 
     {"north":"Ferris Wheel", "south":"Roald Dahl Plass"},
 
-    [second_year_room_9_1, second_year_room_9_2]
+    [second_year_room_9_1, second_year_room_9_2],
+
+    []
 )
 
 #10
@@ -181,60 +199,87 @@ The smell of burnt popcorn and cotton candy has filled the air and there is magi
 
     {"north":"Cardiff Docks", "east":"Seminar Room", "west":"The Senedd Room 1"},
 
-    []
+    [],
+
+    ["room 14 key"]
 )
 
 #11
 Millenium_centre = Room(
     "Millenium Centre",
 
-"""Description goes here""",
+"""You are now at the Millennium Centre.
+The sound of opera pierces the air around you, worrying you that if you get too close, your glasses may shatter.
+Luxuriously dressed men and women saunter around, carrying stylish fans and theatre binoculars. 
+Judgemental looks are cast your way, presumably due to your more casual attire.""",
 
     {"east":"Ferris Wheel", "south":"Cardiff Docks"},
 
-    [buff_art_second_year_room_11]
+    [buff_art_second_year_room_11],
+
+    []
 )
 
 #12
 The_Senedd_1 = Room(
     "The Senedd Room 1",
     
-"""Description goes here""",
+"""You are now in the Senedds first room.
+Distant noises of shouting politicians can be heard, 
+you struggle to understand what they are saying.
+The water from the bay casts glistening streaks of light across its walls, 
+somehow making a parliamentary building seem quite relaxing.""",
 
     {"north":"The Senedd Room 2"},
 
-    [communist_society_president_room_12_1, first_year_room_room_12_1, first_year_room_room_12_2]
+    [communist_society_president_room_12_1, first_year_room_room_12_1, first_year_room_room_12_2],
+
+    []
 )
 
 #13
 The_Senedd_2 = Room(
     "The Senedd Room 2",
 
-"""Description goes here""",
+"""You are now in the Senedds second room.
+You try and listen along to what everyone is saying, 
+but everything is half in Welsh and your Duolingo hasn’t quite reached politics yet.
+“I believe we should raise taxes across South Wales!”""",
 
     {"east":"Millenium Centre"},
 
-    [mark_drakeford_room_13_1]
+    [mark_drakeford_room_13_1],
+
+    []
 )
 
 #14
-Cardiff_museum = Room(
+Queens_arcade = Room(
     "Queens Arcade",
     
-"""Description goes here""",
+"""You are now in the Queens Arcade.
+Students bustle around you, gripping their id cards for dear life in search of discounts.
+Walking past an American sweet shop, you hear the classic 
+“It’s a front for money laundering you know, I never see anyone in there!”""",
 
     {"north":"Cardiff Museum"},
+
+    [],
 
     []
 )
 
 #15
-Queens_arcade = Room(
+Cardiff_museum = Room(
     "Cardiff Museum",
     
-"""Description goes here""",
+"""You are now in the Cardiff Museum.
+The air is quiet and filled only with the sound of quiet murmurs and shuffling feet.
+You admire the painting-adorned walls, pausing momentarily to gaze at a beautiful, bearded princess.""",
 
     {"north":"Cardiff Castle", "east":"Principality Stadium", "west":"NQ64"},
+
+    [],
 
     []
 )
@@ -243,20 +288,30 @@ Queens_arcade = Room(
 NQ64 = Room(
     "NQ64",
     
-"""Description goes here""",
+"""You have now entered NQ64.
+The air is buzzing with electrifying gunshot sounds and cheers of celebration.
+Bartenders dish out neon, overpriced drinks, 
+with the manager smiling gleefully in the back as the pings of Apple Pay break through the sounds of joy.""",
 
     {"north":"The Earnest Willows", "east":"Cardiff Museum"},
 
-    [phd_student_room_16_1]
+    [phd_student_room_16_1],
+
+    []
 )
 
 #17
 The_Earnest_willows = Room(
     "The Earnest Willows",
     
-"""Description goes here""",
+"""You have now entered the Earnest Willows.
+The stench of cheap, poorly poured pints is rampant, 
+being drank by a group of elderly men who glare with every movement you take.
+With every step, your foot seems to stick more and more to the beer covered floor.""",
 
     {"north":"The Prince of Wales"},
+
+    [],
 
     []
 )
@@ -265,33 +320,49 @@ The_Earnest_willows = Room(
 The_Prince_of_Wales = Room(
     "The Prince Of Wales",
     
-"""Description goes here""",
+"""You have now entered the Prince of Wales.
+Formally a sex cinema, it is now a hub full of students and locals alike.
+Blue plates covered in stale burgers and soggy chips cast a foggy haze across the walls,
+ and the sound of rugby and chatter is almost defeaning.""",
 
     {"south":"NQ64"},
 
-    [medicine_student_room_18_1, medicine_student_room_18_2, law_student_room_18]
+    [medicine_student_room_18_1, medicine_student_room_18_2, law_student_room_18],
+
+    []
 )
 
 #19
 Principality_stadium = Room(
     "Principality Stadium",
     
-"""Description goes here""",
+"""You have now entered Principality Stadium.
+Filled to the brim with supporters of both teams, screams and cheers fill the air.
+You pause for a moment to watch two big bald burly men fighting in the stands, 
+while their wives look upon with disappointment.""",
 
     {"west":"Cardiff Museum"},
 
-    []
+    [],
+
+    ["room 20 key"]
 )
 
 #20
 Cardiff_castle = Room(
     "Cardiff Castle",
     
-"""Description goes here""",
+"""You have now entered Cardiff Castle.
+Screaming with joy, children loop around you, 
+covered in foam chainmail gear and whacking each other with swords and maces.
+Light pierces through gaps in the stone walls, 
+and the foggy autumn air creates an atmosphere that can only be described as the “calm before the storm”.""",
 
     {"north":"END"},
 
-    [professor_stuart_allen_room_20]
+    [professor_stuart_allen_room_20],
+
+    []
 )
 
 rooms = {
@@ -306,7 +377,7 @@ rooms = {
     "Cardiff Docks":Cardiff_docks,
     "Roald Dahl Plass":Roald_Dahl_plass,
     "The Senedd Room 1":The_Senedd_1,
-    "Millennium Centre":Millenium_centre,
+    "Millenium Centre":Millenium_centre,
     "The Senedd Room 2":The_Senedd_2,
     "Queens Arcade":Queens_arcade,
     "Cardiff Museum":Cardiff_museum,
@@ -339,4 +410,4 @@ rooms = {
 
 
 #This allows starts the players journeys
-player = Player(100, 15, rooms["Lecture Room"], ["potion", "potion", "rock"], 20)  
+player = Player(100, 15, rooms["Lecture Room"], ["potion", "potion", "rock"], 25)  

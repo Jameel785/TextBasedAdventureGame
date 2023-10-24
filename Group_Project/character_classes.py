@@ -1,4 +1,5 @@
 from items import items
+import time
 
 #OOP for the player
 
@@ -12,6 +13,9 @@ class Player():
         self.inventory = inventory
         self.max_weight = max_weight
         self.weight = self.weight_calculator()
+
+        self.give_up = False
+        self.skip_scrolling_text = False
 
 
     def remove_health(self, damage):
@@ -43,7 +47,7 @@ class Player():
         """This method allows the user to drop a specified item"""
         
         self.inventory.remove(item)
-        print("You have dropped your", items[item].name + ".")
+        print("You have dropped your", items[item].name + ". \n")
         self.current_room.items.append(item)
 
 
@@ -87,23 +91,25 @@ class Player():
             weight += items[item].weight
 
         while weight > self.max_weight:
-            item_dropped = int(input("You cannot carry this many items, please drop one \n"+ self.list_of_items() + "\n >>"))
+            print("You cannot carry this many items, please drop an item (1, 2...):")
+            time.sleep(0.5)
             
-            count = 0
+            item_string = ""
             for item in self.inventory:
-                if item.name == item_dropped:
-                    self.drop_item(item)
-                    weight -= item.weight
-                    count += 1
+                item_string += items[item].id + ", "
+            item_string = item_string[:-2]
+            print("You can drop:", item_string + ".")
+            item_dropped = int(input("> "))
 
-            if count == 0:
+            try:
+                self.drop_item(self.inventory[item_dropped - 1])
+                weight -= items[item].weight
+
+            except IndexError:
                 print("Please try again! \n")
-            
-            if weight > self.max_weight:
-                print("You still cannot carry this much, please drop another item! \n")
 
-            elif weight < self.max_weight:
-                return True
+            if weight < self.max_weight:
+                self.weight = weight
     
 
 
@@ -124,6 +130,9 @@ class Enemy():
         the damage variable"""
 
         self.health -= damage
+
+        if self.health <= 0:
+            self.drop_items()
             
 
     def add_health(self, healing):
@@ -139,7 +148,6 @@ class Enemy():
         True for dead and False for not dead"""
 
         if self.health <= 0:
-            self.drop_items()
             return True
         else:
             return False

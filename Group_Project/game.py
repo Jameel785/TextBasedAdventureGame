@@ -119,6 +119,49 @@ def execute_drop(item_id):
         except:
             pass
 
+def execute_attack(enemy_name):
+    enemy = None
+    for e in player.current_room.enemies:
+        if e.name.lower() == enemy_name.lower():
+            enemy = e
+            break
+
+    if enemy is None:
+        print(f"No enemy named '{enemy_name}' found in this room.")
+        return
+
+    while not enemy.is_dead() and not player.is_dead():
+        print(f"Player health: {player.health}")
+        print(f"Enemy health: {enemy.health}")
+        print("Your turn!")
+        player.print_inventory_items()
+        print("type 1 to Attack")
+        print("type 2 Use Health Potion")
+        player_choice = input("Choose an action: ")
+
+        if player_choice == "1":
+            print(player.inventory)
+            attack_item = input("Choose an item to attack with: ")
+            if attack_item not in player.inventory:
+                print("You dont have that item")
+                continue
+
+            item = items[attack_item]
+            damage = item.damage_increase
+            print(f"You attacked with {item.name} and dealt {damage} damage.")
+            enemy.remove_health(damage)
+
+        if player_choice == "2":
+            print(player.inventory)
+            if "potion" in player.inventory:
+                player.add_health(35)
+                print("You used a health potion.")
+            else:
+                print("You don't have any health potions to use.")
+
+        if enemy.is_dead():
+            print(f"You defeated {enemy.name}.")
+
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -147,11 +190,12 @@ def execute_command(command):
         else:
             print("Drop what?")
 
-    elif command[0] == "crawl" and player.current_room.name == "Roald Dahl Plass":
-        if len(command) == 1:
-            player.current_room = rooms["The Senedd Room 1"]
+    elif command[0] == "attack":
+        if len(command) > 1:
+            enemy_name = " ".join(command[1:])
+            execute_attack(enemy_name)
         else:
-            print("Crawl where?")
+            print("Attack what?")
 
     else:
         print("This makes no sense.")

@@ -1,6 +1,9 @@
 #This is the program which contains most of the important ascpects to the game such as the game loop
 
 #libraries to be used in the program
+
+from random import choice
+
 #sys allows us to quit the file once the game is done and for the scrolling text
 import sys
 
@@ -132,7 +135,7 @@ def execute_attack(enemy_name):
         return
 
     while not enemy.is_dead() and not player.is_dead():
-        print(f"Player health: {player.health}")
+        print(f"Your health: {player.health}")
         print(f"Enemy health: {enemy.health}")
         print("Your turn!")
         player.print_inventory_items()
@@ -141,14 +144,19 @@ def execute_attack(enemy_name):
         player_choice = input("Choose an action: ")
 
         if player_choice == "1":
-            print(player.inventory)
+            player_weapons = []
+            for item in player.inventory:
+                if items[item].damage_increase > 0:
+                    player_weapons.append(item)
+
+            print(f"you can attack with: {player_weapons}")
             attack_item = input("Choose an item to attack with: ")
             if attack_item not in player.inventory:
                 print("You dont have that item")
                 continue
 
             item = items[attack_item]
-            damage = item.damage_increase
+            damage = item.damage_increase + player.damage_per_hit
             print(f"You attacked with {item.name} and dealt {damage} damage.")
             enemy.remove_health(damage)
 
@@ -156,14 +164,33 @@ def execute_attack(enemy_name):
             print(player.inventory)
             if "potion" in player.inventory:
                 player.add_health(35)
+                player.inventory.remove("potion")
                 print("You used a health potion.")
             else:
                 print("You don't have any health potions to use.")
 
         if enemy.is_dead():
+            enemy_items = enemy.items
+            dropped_items = ", ".join(item.upper() for item in enemy_items)
             print(f"You defeated {enemy.name}.")
-            player.current_room.pick_up_enemy_items(enemy)
-            player.add_experience(enemy)
+            print(f"Enemy dropped: {dropped_items}")
+            player.current_room.pick_up_enemy_items()
+            player.current_room.enemies.remove(enemy)
+            break
+
+        print("")
+        print(f"Your health {player.health}")
+        print(f"Enemy health {enemy.health}")
+        print("")
+        print(f"Enemy's turn")
+        time.sleep(2)
+        print("")
+        enemy_choice = choice(enemy.items)
+        enemy_item = items[enemy_choice]
+        enemy_damage = enemy_item.damage_increase + enemy.damage_per_hit
+        print(f"Enemy attacked with {enemy_item.name} and dealt {enemy_damage} damage.")
+        player.remove_health(enemy_damage)
+        print("")
 
 
 def execute_command(command):

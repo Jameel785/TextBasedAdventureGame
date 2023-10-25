@@ -55,6 +55,39 @@ class Player():
         self.current_room.items.remove(item)
         if self.weight_calculator():
             print("You have picked up the", item.name + ".")
+        
+        if items[item].id == "key1":
+
+            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("                                             ")
+            print("     8 8 8 8                     ,ooo.       ")
+            print("     8a8 8a8                    oP   ?b      ")
+            print("    d888a888zzzzzzzzzzzzzzzzzzzz8     8b     ")
+            print("     `""^""'                    ?o___oP'     ")
+            print("                               _______\      ")
+            print("                               |room 14|     ")
+            print("                               `-------'     ")
+            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
+        elif items[item].id == "key2":
+
+            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("                                                     ")
+            print('  ad8888888888ba                                     ')
+            print(' dP          ``8b,                                   ')
+            print(' 8  ,aaa,       `Y888a     ,aaaa,     ,aaa,  ,aa,    ')
+            print(' 8  8  `8           "88baadP""""YbaaadP"""YbdP""Yb   ')
+            print(' 8  8   8              """        """      ""    8b  ')
+            print(' 8  8, ,8         ,aaaaaaaaaaaaaaaaaaaaaaaaddddd88P  ')
+            print(' 8  `"""         d8                                  ')
+            print(' Yb,         ,ad8"                                   ')
+            print(' "Y8888888888P"                                      ')
+            print("      \_______                                       ")
+            print("      |room 20|                                      ")
+            print("      |_______|                                      ")
+            print("                                                     ")
+            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
         self.inventory.append(item)
         self.inventory = sorted(self.inventory)
 

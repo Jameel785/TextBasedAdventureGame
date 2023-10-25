@@ -37,10 +37,6 @@ def print_menu():
         print("ATTACK", enemy.name.upper(), "to start a battle.")
         time.sleep(0.25)
 
-    if player.current_room.name == "Roald Dahl Plass":
-        print("CRAWL to", rooms["The Senedd Room 1"].name.upper() + ".")
-    print(" ")
-
     print("What do you want to do?")
 
 
@@ -71,9 +67,80 @@ def execute_go(direction):
 
             if room != "END":
                 player.current_room = rooms[room]
-        
+
+
+            if room == "Computer Lab":
+                solved = False
+
+                player.current_room.print_room()
+
+                scrolling_text("""In a computer lab, five students - Alex, Ben, Carol, Dave, and Emma - are working on different assignments using five different computers. Can you determine who is using which computer based on the following clues?
+The computers are labelled A, B, C, D, and E in a row.
+                               
+Alex is not using computer C.
+Dave is using computer D.
+Emma is using a computer next to Ben's.
+Ben is not using computer B.
+Carol is using a computer on one end of the row.
+Alex and Dave have 2 computers between them.
+                               
+What is the one-word answer to indicate who is sitting at computer A?\n""")
+                
+                while not solved:
+                    user_input = input("> ")
+
+                    user_input = user_input.lower()
+
+                    if user_input == "alex":
+                        solved = True
+
+                    else:
+                        print("That is wrong! Please try again.")
+
+
+            if room == "Seminar Room":
+                print("Press 's' to skip the scrolling text!\n")
+                scrolling_text(player.current_room.dialouge)
+
+                print("Would you like to give up (Y/N)?")
+                user_input = input("> ")
+
+                if user_input == "Y":
+                    player.give_up = True
+                    end_condition_met()
+
+
+            if room == "Ferris Wheel":
+                print("Press 's' to skip the scrolling text!\n")
+                scrolling_text(player.current_room.dialouge)
+
+            
+            if room == "Queens Arcade":
+                print("Press 's' to skip the scrolling text!\n")
+                scrolling_text(player.current_room.dialouge)
+
+            
+            if room == "Cardiff Museum":
+                scrolling_text("""In your decisions, I'm your guiding star, The path that leads you near and far. When you choose me, you'll be on track, No deviation, no looking back.
+I'm the opposite of wrong, not amiss, A synonym for correct, hit or kiss. In a circle of options, I stand out, A room with a key, there's no doubt.""")
+
+
+            if room == "The Earnest Willows":
+
+                player.current_room.print_room()
+
+                scrolling_text("""In this puzzle, I'll set the stage,
+A tale of love, a desperate cage.
+To rescue one, a hostage must be held,
+A drastic choice, may your fears be quelled.
+ 
+In shadows deep or daylight's gleam,
+To set them free, a daring scheme.
+But remember, love's the end in sight,
+Who might you seize to make it right?""")
+
         else:
-            print("Please kill all the enemies in the room before!")
+            print("Please kill all the enemies in this room!")
     
 
 def execute_take(item_id):
@@ -122,6 +189,13 @@ def execute_drop(item_id):
         
         except:
             pass
+        
+
+def execute_inspect(item_id):
+    for item in player.inventory:
+        if items[item].id == item_id:
+            item = "This item is a", items[item].name, "and it", items[item].description
+            scrolling_text(item)
 
 def execute_attack(enemy_name):
     enemy = None
@@ -231,6 +305,10 @@ def execute_command(command):
             execute_attack(enemy_name)
         else:
             print("Attack what?")
+    
+    elif command[0] == "inspect":
+        if len(command) > 1:
+            execute_inspect(command[1])
 
     else:
         print("This makes no sense.")
@@ -241,19 +319,35 @@ def end_condition_met():
     died = False
 
     if professor_stuart_allen_room_20.is_dead():
-        print("stuart allen killed")
+        scrolling_text("""\n\nAs Stuart’s weak body crumbles into ashes, beams of light twinkle around the room.
+You turn your attention over to Chris, who is still chained up behind what was Stuart.
+He looks at you with wide eyes - “Thank you so much for saving me! How ever will i repay you?!”
+Unchaining him, he grabs your arm and you walk into the sunset, living happily ever after.\n\n""")
         win = True
     
-    elif "Stuart Allen's Mum" in player.inventory:
-        print("stuarts mum taken hostage")
+    elif "Stuart_Allens_Mum" in player.inventory:
+        scrolling_text("""“Please,” Stuart pleads, “Don’t do this Kirill.”
+                       
+“Release Chris and then we can talk.” You demand. 
+                       
+“Okay, okay… You can have Chris as long as you unchain my Mum first!” He exclaims. 
+
+Releasing Stuart’s Mum, she crawls back over to him, thanking you feebly. 
+Stuart has a look of deception in his eyes, but nonetheless, he unlocks Chris’s chains who also crawls over to you.
+The air is silent in the room, with only the shuffling of the hostages piercing the silence.
+Grabbing Chris’s arm, you walk out into the sun set, living happily ever after.\n""")
         win = True
 
     elif player.is_dead():
-        print("player died")
+        scrolling_text("""\nCollapsing to the ground, you realise you have been defeated and that this is the end of you and Chris.
+Your soul aches for him, feeling nothing but pain and disappointment that you could not succeed in saving him.
+Finding relief in the fact that you may see him again in the afterlife, you close your eyes and let the thought of him take you away…\n\n""")
         died = True
 
     elif player.give_up:
-        print("player gave up")
+        scrolling_text("""\n\nCollapsing with exhaustion, you realise that you cannot do this anymore and a wave of disappointment washes over you. 
+As tears fall from your eyes, you wonder if you will ever see Chris again and if you do, will he forgive you for giving up on him? 
+“Will I ever find love like that again?” You wander as Chris’s distant shouts become quieter and quieter…\n\n""")
         died = True
         
     if win:
@@ -296,15 +390,19 @@ def end_condition_met():
 
 def scrolling_text(text):
     character_print_time = 0.025
+    pressed_s = False
 
     for character in text:
         if keyboard.is_pressed("s"):
-            keyboard.press_and_release("backspace")
+            pressed_s = True
             character_print_time = 0
         
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(character_print_time)
+
+    if pressed_s:
+        keyboard.press_and_release("backspace")
 
 
 def menu():

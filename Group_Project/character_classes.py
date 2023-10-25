@@ -6,11 +6,12 @@ import time
 
 class Player():
     def __init__(self, current_room, inventory, max_weight):
+        self.current_room = current_room
+
+        self.start_dialogue()
         self.character_class = self.class_choice()
         self.class_stats()
         self.experience = 100
-        
-        self.current_room = current_room
 
         self.inventory = inventory
         self.max_weight = max_weight
@@ -19,12 +20,17 @@ class Player():
         self.give_up = False
     
 
+    def start_dialogue(self):
+        print("\nPress 's' to skip the scrolling text!")
+        text = self.current_room.dialouge
+        scrolling_text(text)
+
     def remove_health(self, damage):
         """This method decreases the health of the player by 
         the damage variable"""
 
         self.health -= damage
-            
+
 
     def add_health(self, healing):
         """This method increases the health of the player by
@@ -48,20 +54,32 @@ class Player():
         while self.experience >= 50:
             self.experience -= 50
 
-            scrolling_text("\nYou've Levelled Up! What stat would you like to increase? (damage, health, exp_gain).\n")
-            user_input = input("> ")
+            chosen_stat = False
 
-            user_input = normalise_input(user_input)[0]
+            while not chosen_stat:
+                scrolling_text("\nYou've Levelled Up! What stat would you like to increase? (damage, health, exp_gain).\n")
+                user_input = input("> ")
+                try:
+                    user_input = normalise_input(user_input)[0]
+                
+                except:
+                    print("Invalid input")
+                    continue
 
-            if user_input == "damage":
-                self.damage_per_hit += 5 
+                if user_input == "damage":
+                    self.damage_per_hit += 5 
+                    chosen_stat = True
 
-            elif user_input == "health":
-                self.max_health += 10
-                self.health += 10
+                elif user_input == "health":
+                    self.max_health += 10
+                    self.health += 10
+                    chosen_stat = True
 
-            elif user_input == "exp_gain":
-                self.experience_gain += 10
+                elif user_input == "exp_gain":
+                    self.experience_gain += 10
+                    chosen_stat = True
+
+            
 
 
 
@@ -192,9 +210,11 @@ class Player():
 
         choice_valid = False
 
+        scrolling_text("Before you, Kirill, embark on your journey through this mystical realm, choose your class wisely as your decision will shape your destiny in this epic RPG tale.\n")
+
         while not choice_valid:
             print("")
-            print("Chose your class:")
+            print("Please choose your class:")
             print("type WARRIOR to select the WARRIOR Kirill. High damage, low health, low xp")
             print("type WIZARD to select the WIZARD Kirill. Low damage, low health, high xp")
             print("type BARBARIAN to select the BARBARIAN Kirill. Low damage, high health, low xp")

@@ -123,6 +123,7 @@ class Player():
             print("type CHALLENGE to select the CHALLENGED Kirill. Low damage, low health, low xp")
             choice = input ("> ")
             normalised_choice = choice.lower()
+            normalised_choice = normalised_choice.strip()
 
             if normalised_choice == "warrior":
                 choice_valid = True

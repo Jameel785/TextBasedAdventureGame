@@ -54,7 +54,24 @@ There are rows of seats lined across the hall with a large whiteboard stacked at
 
     [],
 
-    ""
+    """
+    Once upon a time in the land of Cardiff lived a happy beautiful couple.
+    Kirill and Chris held hands affectionately as they watched the golden sun set behind the majestic castle.
+    They had met at a league of legends tournament and Kirill had caught a glance at Chris who was sat at the opposite side of the room.
+    It was love at first site and ever since then they have passionately enjoyed each other’s company for 6 loving months.
+    The sun had fully set now and the glowing moon caressed Kirill and Chris who were laying down gazing at the stars.
+    The night was getting late, and they had both fell asleep on the grass holding each other close, dreaming of the day of their wedding.
+    Suddenly Kirill was awoken by the sounds of unsettling screams.
+    He had turned to look at Chris, but he had vanished!
+    He then sees in the distance, the distressed Chris being carried away by a hooded figure, struggling to break free. Chris had been kidnapped!!!
+    
+    Sheep – 
+    “Baaah, hello the great mighty Kirill!
+    I am a sheep and I have been sent to give you some terrible news. Baaaah!
+    Your beloved Chris has been kidnapped by an evil being capable of causing the most destructive atrocities known to man.
+    Bahh! But I believe with your mighty strength and immense will power, you will be able to rid this horrid being from all the lands and save your beloved Chris.
+    But be warned, I have heard the evil monster has hired foot soldiers to stop you from reaching him in his evil lair.
+    Hurry! You must go now! Bahhhhhh!”"""
 )
 
 #2
@@ -91,7 +108,14 @@ On top of the desks are piles of scribbled paper sheets and empty pencil cases."
 
     [],
 
-    ""
+    """
+    Squidward -
+    “Oh barnicles. You really think you can save Chris?
+    Its impossible, just give up already.
+    The evil being is too powerful for someone like you to defeat. Just let go of Chris and come work at the Krusty Krab.
+    SpongeBob is totally useless and extreeemmly annoying to be quite frank and I am in urgent need of a second pair of hands,
+    not SpongeBobs hands of course, so please come work here.”
+    """
 )
 
 #4
@@ -185,7 +209,14 @@ It is easily the largest structure in Cardiff bay.""",
 
     [],
 
-    ""
+    """
+    Gandalf -
+    “Greetings fellow traveller.
+    Well done on getting this far, you have slain many powerful enemies, and you are getting stronger by the minute!
+    Keep fighting and soon you will finally defeat the evil all powerful being and save the beautiful Chris.
+    However, heed my warning, the enemies that lie ahead will be more powerful than you have faced so far.
+    Second-year students lie in this part of town and have much more health and damage per hit than the first years so make sure you are prepared!”
+    """
 )
 
 #9
@@ -294,7 +325,16 @@ Walking past an American sweet shop, you hear the classic
 
     [],
 
-    ""
+    """
+    Wise Mystical Tree –
+    “Welcome Kirill.
+    My senses tell me that you are a brave mighty warrior.
+    And that you will soon defeat the evil being that has tormented these lands for many years and save the enchanted Chris.
+    However, the enemies that await you, will be challenging even for someone as brave and mighty as yourself.
+    You are now in the territory of the third-year and PHD students.
+    They possess greater strength and wield mightier attacks than what you have faced so far.
+    So please do take these health potions growing from my branch to aid you in your battles.”
+    """
 )
 
 #15

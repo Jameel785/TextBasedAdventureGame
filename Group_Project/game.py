@@ -271,6 +271,33 @@ def scrolling_text(text):
         sys.stdout.flush()
         time.sleep(character_print_time)
 
+def class_choice():
+    while True:
+        print("Chose your class:")
+        print("type WARRIOR to select the warrior Kirill. High damage, low health, low xp")
+        print("type WIZARD to select the wizard Kirill. Low damage, low health, high xp")
+        print("type BIG to select the big Kirill. Low damage, high health, low xp")
+        print("type CHALLENGE to select the challenge mode. Low damage, low health, low xp")
+        choice = input ("> ")
+        normal_choice: normalise_input(choice)
+        if normal_choice == "warrior":
+            break
+
+        elif normal_choice == "wizard":
+            break
+
+        elif normal_choice == "big":
+            break
+            
+        elif normal_choice == "challenge":
+            break
+        
+        else:
+            print("invalid input")
+
+    blah blah blah
+
+
 
 def menu():
     """This function, given a dictionary of possible exits from a room, and a list
@@ -294,7 +321,7 @@ def menu():
 
 # This is the entry point of our program
 def main():
-
+    class_choice()
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)

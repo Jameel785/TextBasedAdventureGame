@@ -52,7 +52,9 @@ There are rows of seats lined across the hall with a large whiteboard stacked at
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #2
@@ -69,7 +71,9 @@ The keyboards are full of breadcrumbs and surrounded by empty crisp packets.""",
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #3
@@ -85,7 +89,9 @@ On top of the desks are piles of scribbled paper sheets and empty pencil cases."
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #4
@@ -101,7 +107,9 @@ With a capacity of over 1,600 people, there is no shortage of empty space here."
 
     [first_year_room_4],
 
-    []
+    [],
+
+    ""
 )
 
 #5
@@ -118,7 +126,9 @@ The floor is littered with empty beer bottles and tissues.""",
 
     [first_year_room_5_1, first_year_room_5_2],
 
-    []
+    [],
+
+    ""
 )
 
 #6
@@ -134,7 +144,9 @@ There are also play areas filled with table tennis tables and pool tables.""",
 
     [mature_first_year_room_6_1, first_year_room_6_1, first_year_room_6_2],
 
-    []
+    [],
+
+    ""
 )
 
 #7
@@ -151,7 +163,9 @@ There are receipt papers and coat hangers littered across the floor.""",
 
     [second_year_room_7_1, mature_first_year_room_7_1, mature_first_year_room_7_2],
 
-    []
+    [],
+
+    ""
 )
 
 #8
@@ -169,7 +183,9 @@ It is easily the largest structure in Cardiff bay.""",
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #9
@@ -185,7 +201,9 @@ Seagulls are squeaking as they are flying through the air and the sky has a brig
 
     [second_year_room_9_1, second_year_room_9_2],
 
-    []
+    [],
+
+    ""
 )
 
 #10
@@ -201,7 +219,9 @@ The smell of burnt popcorn and cotton candy has filled the air and there is magi
 
     [],
 
-    ["room 14 key"]
+    ["room 14 key"],
+
+    ""
 )
 
 #11
@@ -217,7 +237,9 @@ Judgemental looks are cast your way, presumably due to your more casual attire."
 
     [buff_art_second_year_room_11],
 
-    []
+    [],
+
+    ""
 )
 
 #12
@@ -234,7 +256,9 @@ somehow making a parliamentary building seem quite relaxing.""",
 
     [communist_society_president_room_12_1, first_year_room_room_12_1, first_year_room_room_12_2],
 
-    []
+    [],
+
+    ""
 )
 
 #13
@@ -250,7 +274,9 @@ but everything is half in Welsh and your Duolingo hasn’t quite reached politic
 
     [mark_drakeford_room_13_1],
 
-    []
+    [],
+
+    ""
 )
 
 #14
@@ -266,7 +292,9 @@ Walking past an American sweet shop, you hear the classic
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #15
@@ -281,7 +309,9 @@ You admire the painting-adorned walls, pausing momentarily to gaze at a beautifu
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #16
@@ -297,7 +327,9 @@ with the manager smiling gleefully in the back as the pings of Apple Pay break t
 
     [phd_student_room_16_1],
 
-    []
+    [],
+
+    ""
 )
 
 #17
@@ -313,7 +345,9 @@ With every step, your foot seems to stick more and more to the beer covered floo
 
     [],
 
-    []
+    [],
+
+    ""
 )
 
 #18
@@ -329,7 +363,9 @@ Blue plates covered in stale burgers and soggy chips cast a foggy haze across th
 
     [medicine_student_room_18_1, medicine_student_room_18_2, law_student_room_18],
 
-    []
+    [],
+
+    ""
 )
 
 #19
@@ -345,7 +381,9 @@ while their wives look upon with disappointment.""",
 
     [],
 
-    ["room 20 key"]
+    ["room 20 key"],
+
+    ""
 )
 
 #20
@@ -362,7 +400,9 @@ and the foggy autumn air creates an atmosphere that can only be described as the
 
     [professor_stuart_allen_room_20],
 
-    []
+    [],
+
+    ""
 )
 
 rooms = {

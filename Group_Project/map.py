@@ -2,12 +2,13 @@ from game import scrolling_text
 import time
 
 class Room():
-    def __init__(self, name, description, exits, enemies, items):
+    def __init__(self, name, description, exits, enemies, items, dialouge):
         self.name = name
         self.description = description
         self.exits = exits
         self.enemies = enemies
         self.items = items
+        self.dialouge = dialouge
     
     def print_all_exits_name(self):
         directions = ["north", "east", "south", "west"]
@@ -40,6 +41,19 @@ class Room():
         scrolling_text(self.description + "\n ")
         print("")
         self.print_enemies()
+
+
+    def has_dialouge(self):
+        if self.dialouge != "":
+            return True
+        else:
+            return False
+        
+    
+    def print_dialogue(self):
+        if self.has_dialouge():
+            print("press 's' to skip the scrolling text!\n")
+            scrolling_text(self.dialouge)
 
 
     def list_of_items(self):

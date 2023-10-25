@@ -3,38 +3,38 @@ from map import Room
 from character_classes import Enemy, Player
     
 #defining each enemy for each room
-first_year_room_4 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# first_year_room_4 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
-first_year_room_5_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
-first_year_room_5_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# first_year_room_5_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# first_year_room_5_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
-mature_first_year_room_6_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
-first_year_room_6_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
-first_year_room_6_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# mature_first_year_room_6_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+# first_year_room_6_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# first_year_room_6_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
-second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
-mature_first_year_room_7_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
-mature_first_year_room_7_2 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+# second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
+# mature_first_year_room_7_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+# mature_first_year_room_7_2 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
 
-second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
-second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
+# second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
+# second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
 
-buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses"])
+# buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses"])
 
-communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto"])
-first_year_room_room_12_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
-first_year_room_room_12_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto"])
+# first_year_room_room_12_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+# first_year_room_room_12_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
 
-mark_drakeford_room_13_1 = Enemy("Mark", "Mark Drakeford", 120, 35, ["swatter", "speech"])
+# mark_drakeford_room_13_1 = Enemy("Mark", "Mark Drakeford", 120, 35, ["swatter", "speech"])
 
-phd_student_room_16_1 = Enemy("PHD", "PHD Student", 120, 35, ["shovel", "timberland boots"])
+# phd_student_room_16_1 = Enemy("PHD", "PHD Student", 120, 35, ["shovel", "timberland boots"])
 
-medicine_student_room_18_1 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
-medicine_student_room_18_2 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
-law_student_room_18 = Enemy("Law_Student", "Law Student", 160, 40, ["mallet", "necklace", "Stuart Allen's Mum"])
+# medicine_student_room_18_1 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
+# medicine_student_room_18_2 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
+law_student_room_18 = Enemy("Law_Student", "Law Student", 160, 40, ["mallet", "necklace", "Mum"])
 
-professor_stuart_allen_room_20 = Enemy("Prof_Stuart", "Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
+professor_stuart_allen_room_20 = Enemy("Prof_Stuart", "Professor Stuart Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
 
 
 
@@ -127,7 +127,7 @@ With a capacity of over 1,600 people, there is no shortage of empty space here."
 
     {"north":"Lecture Room", "east":"Seminar Room", "south":"The Taff", "west":"The Lounge"},
 
-    [first_year_room_4],
+    [],
 
     [],
 
@@ -146,7 +146,7 @@ The floor is littered with empty beer bottles and tissues.""",
 
     {"north":"The Great Hall", "west":"Love Cardiff Shop"},
 
-    [first_year_room_5_1, first_year_room_5_2],
+    [],
 
     [],
 
@@ -164,7 +164,7 @@ There are also play areas filled with table tennis tables and pool tables.""",
 
     {"north":"Lecture Room", "east":"The Great Hall"},
 
-    [mature_first_year_room_6_1, first_year_room_6_1, first_year_room_6_2],
+    [],
 
     [],
 
@@ -183,7 +183,7 @@ There are receipt papers and coat hangers littered across the floor.""",
 
     {"west":"Ferris Wheel"},
 
-    [second_year_room_7_1, mature_first_year_room_7_1, mature_first_year_room_7_2],
+    [],
 
     [],
 
@@ -207,7 +207,10 @@ It is easily the largest structure in Cardiff bay.""",
 
     [],
 
-    """Gandalf:
+    """You suddenly find yourself at a Ferris wheel as if you had been summoned...
+A white figure seems to sit next to you, looking like Gandalf.
+
+Gandalf:
 “Greetings fellow traveller.
 Well done on getting this far, you have slain many powerful enemies, and you are getting stronger by the minute!
 Keep fighting and soon you will finally defeat the evil all powerful being and save the beautiful Chris.
@@ -226,7 +229,7 @@ Seagulls are squeaking as they are flying through the air and the sky has a brig
 
     {"north":"Ferris Wheel", "south":"Roald Dahl Plass"},
 
-    [second_year_room_9_1, second_year_room_9_2],
+    [],
 
     [],
 
@@ -262,7 +265,7 @@ Judgemental looks are cast your way, presumably due to your more casual attire."
 
     {"east":"Ferris Wheel", "south":"Cardiff Docks"},
 
-    [buff_art_second_year_room_11],
+    [],
 
     [],
 
@@ -281,7 +284,7 @@ somehow making a parliamentary building seem quite relaxing.""",
 
     {"north":"The Senedd Room 2"},
 
-    [communist_society_president_room_12_1, first_year_room_room_12_1, first_year_room_room_12_2],
+    [],
 
     [],
 
@@ -299,7 +302,7 @@ but everything is half in Welsh and your Duolingo hasn’t quite reached politic
 
     {"east":"Millenium Centre"},
 
-    [mark_drakeford_room_13_1],
+    [],
 
     [],
 
@@ -321,16 +324,14 @@ Walking past an American sweet shop, you hear the classic
 
     [],
 
-    """
-    Wise Mystical Tree –
-    “Welcome Kirill.
-    My senses tell me that you are a brave mighty warrior.
-    And that you will soon defeat the evil being that has tormented these lands for many years and save the enchanted Chris.
-    However, the enemies that await you, will be challenging even for someone as brave and mighty as yourself.
-    You are now in the territory of the third-year and PHD students.
-    They possess greater strength and wield mightier attacks than what you have faced so far.
-    So please do take these health potions growing from my branch to aid you in your battles.”
-    """
+    """Wise Mystical Tree –
+“Welcome Kirill.
+My senses tell me that you are a brave mighty warrior.
+And that you will soon defeat the evil being that has tormented these lands for many years and save the enchanted Chris.
+However, the enemies that await you, will be challenging even for someone as brave and mighty as yourself.
+You are now in the territory of the third-year and PHD students.
+They possess greater strength and wield mightier attacks than what you have faced so far.
+So please do take these health potions growing from my branch to aid you in your battles.”"""
 )
 
 #15
@@ -361,7 +362,7 @@ with the manager smiling gleefully in the back as the pings of Apple Pay break t
 
     {"north":"The Earnest Willows", "east":"Cardiff Museum"},
 
-    [phd_student_room_16_1],
+    [],
 
     [],
 
@@ -377,7 +378,7 @@ The stench of cheap, poorly poured pints is rampant,
 being drank by a group of elderly men who glare with every movement you take.
 With every step, your foot seems to stick more and more to the beer covered floor.""",
 
-    {"north":"The Prince of Wales"},
+    {"north":"The Prince Of Wales"},
 
     [],
 
@@ -397,7 +398,7 @@ Blue plates covered in stale burgers and soggy chips cast a foggy haze across th
 
     {"south":"NQ64"},
 
-    [medicine_student_room_18_1, medicine_student_room_18_2, law_student_room_18],
+    [law_student_room_18],
 
     [],
 
@@ -484,4 +485,4 @@ rooms = {
 
 
 #This allows starts the players journeys
-player = Player(rooms["Lecture Room"], ["potion", "potion", "rock"], 25) 
+player = Player(rooms["The Earnest Willows"], ["potion", "potion", "rock"], 25) 

@@ -1,0 +1,27 @@
+What to demonstrate:
+
+Drop Rock
+Move to Computer Lab
+Do Puzzle
+Move to Lecture Room
+Pick Up Rock
+Move to The Great Hall
+Attack First Year
+Move to Lecture Room
+Move to Seminar Room
+Give Up
+
+Move to The Great Hall
+Move to the Taff
+Show the Potions Working
+Die to First Year
+
+Move to Game Without Enemies
+Pick Up Keys
+Show Riddles, Mention They Help
+
+Make File Where Starting Room is Room 15
+Show Ending Where Kirill Saves Chris
+Show Ending Taking Stuart's Mum Hostage
+
+

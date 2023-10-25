@@ -51,7 +51,7 @@ def execute_go(direction):
         if player.current_room.all_enemies_dead():
             room = player.current_room.exits[direction]
 
-            if room == "Queens Arcade": 
+            if room == "Queens Arcade":
                 if items["room 14 key"] not in player.inventory:
                     print("Please collect the key to access room 14!")
 

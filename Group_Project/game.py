@@ -159,6 +159,7 @@ def execute_command(command):
 
 def end_condition_met():
     win = False
+    died = False
 
     if professor_stuart_allen_room_20.is_dead():
         print("stuart allen killed")
@@ -170,9 +171,11 @@ def end_condition_met():
 
     elif player.is_dead():
         print("player died")
+        died = True
 
     elif player.give_up:
         print("player gave up")
+        died = True
         
     if win:
         print("")
@@ -192,6 +195,24 @@ def end_condition_met():
         print("")
 
         sys.exit()
+    
+    if died:
+        print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        print("                                                                                           ")
+        print("                                                                                           ")
+        print("oooooo   oooo   .oooooo.   ooooo     ooo     oooooooooo.   ooooo oooooooooooo oooooooooo.  ")
+        print(" `888.   .8'   d8P'  `Y8b  `888'     `8'     `888'   `Y8b  `888' `888'     `8 `888'   `Y8b ")
+        print("  `888. .8'   888      888  888       8       888      888  888   888          888      888")
+        print("   `888.8'    888      888  888       8       888      888  888   888oooo8     888      888")
+        print("    `888'     888      888  888       8       888      888  888   888    '     888      888")
+        print("     888      `88b    d88'  `88.    .8'       888     d88'  888   888       o  888     d88'")
+        print("    o888o      `Y8bood8P'     `YbodP'        o888bood8P'   o888o o888ooooood8 o888bood8P'  ")
+        print("                                                                                           ")
+        print("                                                                                           ")
+        print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
+        sys.exit()
+
 
 
 def scrolling_text(text):

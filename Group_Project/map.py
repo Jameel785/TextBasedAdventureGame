@@ -34,7 +34,7 @@ class Room():
         """This function takes a Room as an input and nicely displays its name,
         description and items within it."""
         
-        scrolling_text("\n" + self.name.upper())
+        scrolling_text(self.name.upper())
         print("")
         scrolling_text(self.description + "\n ")
         print("")

@@ -47,7 +47,7 @@ class Player():
         """This method allows the user to drop a specified item"""
         
         self.inventory.remove(item)
-        print("You have dropped your", items[item].name + ". \n")
+        print("You have dropped your", items[item].name + ".")
         self.current_room.items.append(item)
 
 

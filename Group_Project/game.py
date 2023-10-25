@@ -49,25 +49,28 @@ def execute_go(direction):
 
     
     if player.current_room.is_valid_exit(direction):
-        room = player.current_room.exits[direction]
-        change_room = False
+        if player.current_room.all_enemies_dead():
+            room = player.current_room.exits[direction]
 
-        if room == "Queens Arcade": 
-            if items["room 14 key"] not in player.inventory:
-                print("Please collect the key to access room 14!")
+            if room == "Queens Arcade": 
+                if items["room 14 key"] not in player.inventory:
+                    print("Please collect the key to access room 14!")
 
-            elif items["room 14 key"] in player.inventory:
+                elif items["room 14 key"] in player.inventory:
+                    player.current_room = rooms[room]
+
+            elif room == "Cardiff Castle":
+                if items["room 20 key"] not in player.inventory:
+                    print("Please collect the key to access room 20!")
+
+                elif items["room 20 key"] in player.inventory:
+                    player.current_room = rooms[room]
+
+            if room != "END":
                 player.current_room = rooms[room]
-
-        elif room == "Cardiff Castle":
-            if items["room 20 key"] not in player.inventory:
-                print("Please collect the key to access room 20!")
-
-            elif items["room 20 key"] in player.inventory:
-                player.current_room = rooms[room]
-
-        if room != "END":
-            player.current_room = rooms[room]
+        
+        else:
+            print("Please kill all the enemies in the room before!")
     
 
 def execute_take(item_id):

@@ -94,35 +94,43 @@ class Player():
         
         if items[item].id == "key1":
 
-            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-            print("                                             ")
-            print("     8 8 8 8                     ,ooo.       ")
-            print("     8a8 8a8                    oP   ?b      ")
-            print("    d888a888zzzzzzzzzzzzzzzzzzzz8     8b     ")
-            print("     `""^""'                    ?o___oP'     ")
-            print("                               _______\      ")
-            print("                               |room 14|     ")
-            print("                               `-------'     ")
-            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("""
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                                   
+   8 8 8 8                     ,ooo.       
+   8a8 8a8                    oP   ?b      
+  d888a888zzzzzzzzzzzzzzzzzzzz8     8b     
+   `""^""'                    ?o___oP'     
+                              ________      
+                              |room 14|     
+                              `-------'     
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                  """)
+
+            time.sleep(3)
 
         elif items[item].id == "key2":
 
-            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-            print("                                                     ")
-            print('  ad8888888888ba                                     ')
-            print(' dP          ``8b,                                   ')
-            print(' 8  ,aaa,       `Y888a     ,aaaa,     ,aaa,  ,aa,    ')
-            print(' 8  8  `8           "88baadP""""YbaaadP"""YbdP""Yb   ')
-            print(' 8  8   8              """        """      ""    8b  ')
-            print(' 8  8, ,8         ,aaaaaaaaaaaaaaaaaaaaaaaaddddd88P  ')
-            print(' 8  `"""         d8                                  ')
-            print(' Yb,         ,ad8"                                   ')
-            print(' "Y8888888888P"                                      ')
-            print("      \_______                                       ")
-            print("      |room 20|                                      ")
-            print("      |_______|                                      ")
-            print("                                                     ")
-            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print('''
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                                                    
+    ad8888888888ba                                    
+    dP          ``8b,                                  
+    8  ,aaa,       `Y888a     ,aaaa,     ,aaa,  ,aa,   
+    8  8  `8           "88baadP""""YbaaadP"""YbdP""Yb  
+    8  8   8              """        """      ""    8b 
+    8  8, ,8         ,aaaaaaaaaaaaaaaaaaaaaaaaddddd88P 
+    8  `"""         d8                                 
+    Yb,         ,ad8"                                  
+    "Y8888888888P"                                     
+        ________                                      
+        |room 20|                                     
+        |_______|                                     
+                                                        
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                  ''')
+
+            time.sleep(3)
 
         self.inventory.append(item)
         self.inventory = sorted(self.inventory)
@@ -191,20 +199,19 @@ class Player():
             print("type WIZARD to select the WIZARD Kirill. Low damage, low health, high xp")
             print("type BARBARIAN to select the BARBARIAN Kirill. Low damage, high health, low xp")
             print("type CHALLENGE to select the CHALLENGED Kirill. Low damage, low health, low xp")
-            choice = input ("> ")
-            normalised_choice = choice.lower()
-            normalised_choice = normalised_choice.strip()
+            user_input = input ("> ")
+            user_input = normalise_input(user_input)[0]
 
-            if normalised_choice == "warrior":
+            if user_input == "warrior":
                 choice_valid = True
 
-            elif normalised_choice == "wizard":
+            elif user_input == "wizard":
                 choice_valid = True
 
-            elif normalised_choice == "barbarian":
+            elif user_input == "barbarian":
                 choice_valid = True
                 
-            elif normalised_choice == "challenge":
+            elif user_input == "challenge":
                 choice_valid = True
             
             else:
@@ -212,7 +219,7 @@ class Player():
                 choice_valid = False
 
         print("")
-        return normalised_choice
+        return user_input
 
 
     def class_stats(self):

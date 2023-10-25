@@ -31,11 +31,24 @@ class Room():
         return enemies_string
     
 
+    def all_enemies_dead(self):
+        enemies_dead = 0
+        for enemy in self.enemies:
+            if enemy.is_dead():
+                enemies_dead += 1
+        
+        if enemies_dead == len(self.enemies):
+            return True
+
+        else:
+            return False
+    
+
     def print_room(self):
         """This function takes a Room as an input and nicely displays its name,
         description and items within it."""
 
-        print("press 's' to skip the scrolling text!\n")
+        print("Press 's' to skip the scrolling text!\n")
         scrolling_text(self.name.upper())
         print("")
         scrolling_text(self.description)
@@ -52,7 +65,7 @@ class Room():
     
     def print_dialogue(self):
         if self.has_dialouge():
-            print("press 's' to skip the scrolling text!\n")
+            print("Press 's' to skip the scrolling text!\n")
             scrolling_text(self.dialouge)
 
     

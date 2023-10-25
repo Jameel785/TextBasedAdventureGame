@@ -34,7 +34,7 @@ def print_menu():
         time.sleep(0.25)
 
     for enemy in player.current_room.enemies:
-        print("ATTACK", enemy.name.upper(), "to start a battle with")
+        print("ATTACK", enemy.name.upper(), "to start a battle.")
         time.sleep(0.25)
 
     if player.current_room.name == "Roald Dahl Plass":
@@ -136,32 +136,38 @@ def execute_attack(enemy_name):
 
     while not enemy.is_dead() and not player.is_dead():
         print(f"Your health: {player.health}")
-        print(f"Enemy health: {enemy.health}")
-        print("Your turn!")
+        print(f"Enemy health: {enemy.health}\n")
+        print("Your turn:")
         player.print_inventory_items()
         print("type 1 to Attack")
         print("type 2 Use Health Potion")
         player_choice = input("Choose an action: ")
+        print("")
 
         if player_choice == "1":
             player_weapons = []
             for item in player.inventory:
                 if items[item].damage_increase > 0:
                     player_weapons.append(item)
+                
+            weapon_string = ""
+            for weapon in player_weapons:
+                weapon_string += str(weapon) + ", "
+            weapon_string = weapon_string[:-2]
 
-            print(f"you can attack with: {player_weapons}")
+            print("you can attack with:", weapon_string)
             attack_item = input("Choose an item to attack with: ")
+            print("")
             if attack_item not in player.inventory:
-                print("You dont have that item")
+                print("You do not have that item. \n")
                 continue
 
             item = items[attack_item]
             damage = item.damage_increase + player.damage_per_hit
-            print(f"You attacked with {item.name} and dealt {damage} damage.")
+            print(f"You attacked with {item.name} and dealt {damage} damage.\n")
             enemy.remove_health(damage)
 
         if player_choice == "2":
-            print(player.inventory)
             if "potion" in player.inventory:
                 player.add_health(35)
                 player.inventory.remove("potion")
@@ -174,15 +180,14 @@ def execute_attack(enemy_name):
             dropped_items = ", ".join(item.upper() for item in enemy_items)
             print(f"You defeated {enemy.name}.")
             print(f"Enemy dropped: {dropped_items}")
-            player.current_room.pick_up_enemy_items()
+            player.current_room.pick_up_enemy_items(enemy)
+            player.add_experience(enemy)
             player.current_room.enemies.remove(enemy)
             break
 
-        print("")
-        print(f"Your health {player.health}")
-        print(f"Enemy health {enemy.health}")
-        print("")
-        print(f"Enemy's turn")
+        print(f"Your health: {player.health}")
+        print(f"Enemy health: {enemy.health} \n")
+        print(f"Enemy's turn:\n")
         time.sleep(2)
         print("")
         enemy_choice = choice(enemy.items)

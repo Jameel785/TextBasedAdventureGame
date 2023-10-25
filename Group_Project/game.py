@@ -19,20 +19,20 @@ def print_menu():
     """This function displays the menu of available actions to the player."""
 
     print("You can:")
-    time.sleep(0.5)
+    time.sleep(0.25)
     player.current_room.print_all_exits_name()
     
     for item in player.current_room.items:
         print("TAKE", items[item].id.upper(), "to take", items[item].name)
-        time.sleep(0.5)
+        time.sleep(0.25)
 
     for item in player.inventory:
         print("DROP", items[item].id.upper(), "to drop your", items[item].name)
-        time.sleep(0.5)
+        time.sleep(0.25)
 
     for enemy in player.current_room.enemies:
         print("ATTACK", enemy.name.upper(), "to start a battle with")
-        time.sleep(0.5)
+        time.sleep(0.25)
 
     if player.current_room.name == "Roald Dahl Plass":
         print("CRAWL to", rooms["The Senedd Room 1"].name.upper() + ".")
@@ -159,7 +159,8 @@ def execute_attack(enemy_name):
 
         if enemy.is_dead():
             print(f"You defeated {enemy.name}.")
-            player.current_room.pick_up_enemy_items()
+            player.current_room.pick_up_enemy_items(enemy)
+            player.add_experience(enemy)
 
 
 def execute_command(command):
@@ -263,6 +264,7 @@ def scrolling_text(text):
 
     for character in text:
         if keyboard.is_pressed("s"):
+            keyboard.press_and_release("backspace")
             character_print_time = 0
         
         sys.stdout.write(character)

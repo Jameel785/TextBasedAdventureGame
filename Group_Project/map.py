@@ -16,7 +16,7 @@ class Room():
             try:
                 if self.exits[direction] is not None:
                     print("GO " + direction.upper() + " to " + self.exits[direction] + ".")
-                    time.sleep(0.5)
+                    time.sleep(0.25)
             except KeyError:
                 pass
 
@@ -38,7 +38,7 @@ class Room():
         print("press 's' to skip the scrolling text!\n")
         scrolling_text(self.name.upper())
         print("")
-        scrolling_text(self.description + "\n ")
+        scrolling_text(self.description)
         print("")
         self.print_enemies()
 
@@ -90,9 +90,8 @@ class Room():
         the Room, nothing is printed."""
         
         if len(self.enemies) > 0:
-            text = "There is", self.list_of_enemies(), " here. \n"
-            print("press 's' to skip the scrolling text!")
-            scrolling_text(text)
+            print("\nEnemies:")
+            print("There is" + self.list_of_enemies(), "here.")
 
     
     def is_valid_exit(self, direction):
@@ -101,14 +100,13 @@ class Room():
         return direction in self.exits
     
 
-    def pick_up_enemy_items(self):
+    def pick_up_enemy_items(self, enemy):
         """This method picks up items from the dead enemies
         and allows the player to pick them up from the room"""
         
-        for enemy in self.enemies:
-            for item in enemy.items:
-                self.items.append(item)
-                enemy.items.remove(item)
+        for item in enemy.items:
+            self.items.append(item)
+            enemy.items.remove(item)
             
 
     

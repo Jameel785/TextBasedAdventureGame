@@ -16,9 +16,9 @@ item_frog = Item("frog", "friendly frog", "will follow you and lick the eyes of 
 
 item_swatter = Item("swatter", "venemous fly swatter", "provides poison damage over time. damage for 3 turns.", 10, 5)
 
-room_14_key = Item("key", "large key", "a comically large key. opens a comically large door", 0, 1)
+room_14_key = Item("key1", "large key", "a comically large key. opens a comically large door", 0, 1)
 
-room_20_key = Item("key", "HUGE key", "an even larger, more comedic key. most likey opens a larger door too", 0, 2)
+room_20_key = Item("key2", "HUGE key", "an even larger, more comedic key. most likey opens a larger door too", 0, 2)
 
 item_potion = Item("potion", "potion", "heals health by 35%.\n rasberry flavour (403 calories)", 0, 3)
 

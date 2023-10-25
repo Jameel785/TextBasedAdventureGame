@@ -1,4 +1,6 @@
 from items import items
+from game_parser import normalise_input
+from game import scrolling_text
 import time
 #OOP for the player
 
@@ -6,6 +8,7 @@ class Player():
     def __init__(self, current_room, inventory, max_weight):
         self.character_class = self.class_choice()
         self.class_stats()
+        self.experience = 100
         
         self.current_room = current_room
 
@@ -14,7 +17,7 @@ class Player():
         self.weight = self.weight_calculator()
 
         self.give_up = False
-
+    
 
     def remove_health(self, damage):
         """This method decreases the health of the player by 
@@ -27,7 +30,40 @@ class Player():
         """This method increases the health of the player by
         the healing variable"""
 
-        self.health += healing
+        if self.health + healing <= self.max_health:
+            self.health += healing
+
+        else:
+            self.health = self.max_health
+
+    
+    def add_experience(self, enemy):
+        if enemy.is_dead():
+            self.experience += self.experience_gain
+
+        self.level_up()
+
+    
+    def level_up(self):
+        while self.experience >= 50:
+            self.experience -= 50
+
+            scrolling_text("\nYou've Levelled Up! What stat would you like to increase? (damage, health, exp_gain).\n")
+            user_input = input("> ")
+
+            user_input = normalise_input(user_input)[0]
+
+            if user_input == "damage":
+                self.damage_per_hit += 5 
+
+            elif user_input == "health":
+                self.max_health += 10
+                self.health += 10
+
+            elif user_input == "exp_gain":
+                self.experience_gain += 10
+
+
 
 
     def is_dead(self):
@@ -65,7 +101,7 @@ class Player():
 
         item_string = ""
         for item in self.inventory:
-            item_string += (items[item].name + ", ")
+            item_string += (items[item].name.upper() + ", ")
         item_string = item_string[:-2]
         return item_string
 
@@ -75,6 +111,7 @@ class Player():
         inventory in a print statement"""
 
         if len(self.inventory) > 0:
+            print("\nInventory items:")
             print("You have", self.list_of_items() + ". \n")
 
 
@@ -148,26 +185,30 @@ class Player():
         if self.character_class == "warrior":
             self.name = "Warrior Kirill"
             self.health = 70
+            self.max_health = 70
             self.damage_per_hit = 20
-            self.experience_gain = 1
+            self.experience_gain = 20
     
         elif self.character_class == "wizard":
             self.name = "Wizard Kirill"
-            self.health = 70
+            self.health = 50
+            self.max_health = 50
             self.damage_per_hit = 10
-            self.experience_gain = 5
+            self.experience_gain = 40
 
         elif self.character_class == "barbarian":
             self.name = "Barbarian Kirill"
             self.health = 100
+            self.max_health = 100
             self.damage_per_hit = 10
-            self.experience_gain = 1
+            self.experience_gain = 20
 
         elif self.character_class == "challenge":
             self.name = "Challenged Kirill"
-            self.health = 70
+            self.health = 50
+            self.max_health = 50
             self.damage_per_hit = 10
-            self.experience_gain = 1
+            self.experience_gain = 20
 
 #OOP for the enemies
 

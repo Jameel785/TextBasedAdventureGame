@@ -488,4 +488,4 @@ rooms = {
 
 
 #This allows starts the players journeys
-player = Player(100, 15, rooms["Lecture Room"], ["potion", "potion", "rock"], 25) 
+player = Player(rooms["Lecture Room"], ["potion", "potion", "rock"], 25) 

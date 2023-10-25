@@ -3,10 +3,10 @@ import time
 #OOP for the player
 
 class Player():
-    def __init__(self, health, damage_per_hit, current_room, inventory, max_weight):
-        self.name = "Kirill"
-        self.health = health
-        self.damage_per_hit = damage_per_hit
+    def __init__(self, current_room, inventory, max_weight):
+        self.character_class = self.class_choice()
+        self.class_stats()
+        
         self.current_room = current_room
 
         self.inventory = inventory
@@ -108,7 +108,66 @@ class Player():
 
             if weight < self.max_weight:
                 self.weight = weight
+
+
+    def class_choice(self):
+
+        choice_valid = False
+
+        while not choice_valid:
+            print("")
+            print("Chose your class:")
+            print("type WARRIOR to select the WARRIOR Kirill. High damage, low health, low xp")
+            print("type WIZARD to select the WIZARD Kirill. Low damage, low health, high xp")
+            print("type BARBARIAN to select the BARBARIAN Kirill. Low damage, high health, low xp")
+            print("type CHALLENGE to select the CHALLENGED Kirill. Low damage, low health, low xp")
+            choice = input ("> ")
+            normalised_choice = choice.lower()
+
+            if normalised_choice == "warrior":
+                choice_valid = True
+
+            elif normalised_choice == "wizard":
+                choice_valid = True
+
+            elif normalised_choice == "barbarian":
+                choice_valid = True
+                
+            elif normalised_choice == "challenge":
+                choice_valid = True
+            
+            else:
+                print("invalid input")
+                choice_valid = False
+
+        print("")
+        return normalised_choice
+
+
+    def class_stats(self):
+        if self.character_class == "warrior":
+            self.name = "Warrior Kirill"
+            self.health = 70
+            self.damage_per_hit = 20
+            self.experience_gain = 1
     
+        elif self.character_class == "wizard":
+            self.name = "Wizard Kirill"
+            self.health = 70
+            self.damage_per_hit = 10
+            self.experience_gain = 5
+
+        elif self.character_class == "barbarian":
+            self.name = "Barbarian Kirill"
+            self.health = 100
+            self.damage_per_hit = 10
+            self.experience_gain = 1
+
+        elif self.character_class == "challenge":
+            self.name = "Challenged Kirill"
+            self.health = 70
+            self.damage_per_hit = 10
+            self.experience_gain = 1
 
 #OOP for the enemies
 
@@ -126,9 +185,6 @@ class Enemy():
         the damage variable"""
 
         self.health -= damage
-
-        # if self.health <= 0:
-        #     self.drop_items()
             
 
     def add_health(self, healing):
@@ -148,7 +204,8 @@ class Enemy():
         else:
             return False
         
+            
+
+        
 
     
-
- 

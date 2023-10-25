@@ -33,7 +33,8 @@ class Room():
     def print_room(self):
         """This function takes a Room as an input and nicely displays its name,
         description and items within it."""
-        
+
+        print("press 's' to skip the scrolling text!\n")
         scrolling_text(self.name.upper())
         print("")
         scrolling_text(self.description + "\n ")
@@ -70,6 +71,7 @@ class Room():
         
         if len(self.enemies) > 0:
             text = "There is", self.list_of_enemies(), " here. \n"
+            print("press 's' to skip the scrolling text!")
             scrolling_text(text)
 
     

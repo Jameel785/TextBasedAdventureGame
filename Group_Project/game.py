@@ -7,12 +7,13 @@ import sys
 #time allows the scrolling text
 import time
 
+#keyboard allows the user to skip the scrolling text
+import keyboard
+
 #required information from other programs is imported
 from instance_creator import *
 from items import *
 from game_parser import *
-
-skip_scrolling_text = False
 
 def print_menu():
     """This function displays the menu of available actions to the player."""
@@ -216,14 +217,15 @@ def end_condition_met():
 
 
 def scrolling_text(text):
-    if skip_scrolling_text:
-        print(text)
+    character_print_time = 0.025
 
-    else:
-        for character in text:
-            sys.stdout.write(character)
-            sys.stdout.flush()
-            time.sleep(0.025)
+    for character in text:
+        if keyboard.is_pressed("s"):
+            character_print_time = 0
+        
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(character_print_time)
 
 
 def menu():
@@ -248,14 +250,6 @@ def menu():
 
 # This is the entry point of our program
 def main():
-
-    # print("Before our text-based adventure begins, would you prefer if the text did not take so long to type out (Y/N)?")
-    # scroll_text = input("> ")
-
-    # if scroll_text == "Y":
-    #     global skip_scrolling_text
-    #     skip_scrolling_text = True
-
 
     # Main game loop
     while True:

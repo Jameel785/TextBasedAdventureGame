@@ -105,6 +105,8 @@ What is the one-word answer to indicate who is sitting at computer A?\n""")
                 print("Would you like to give up (Y/N)?")
                 user_input = input("> ")
 
+                user_input = normalise_input(user_input)
+
                 if user_input == "Y":
                     player.give_up = True
                     end_condition_met()
@@ -243,7 +245,7 @@ def execute_attack(enemy_name):
 
         if player_choice == "2":
             if "potion" in player.inventory:
-                player.add_health(35)
+                player.add_health(75)
                 player.inventory.remove("potion")
                 print("You used a health potion.")
             else:
@@ -385,6 +387,8 @@ As tears fall from your eyes, you wonder if you will ever see Chris again and if
         print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 
         sys.exit()
+
+    time.sleep(10)
 
 
 

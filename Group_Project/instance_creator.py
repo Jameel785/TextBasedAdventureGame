@@ -12,14 +12,14 @@ mature_first_year_room_6_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, [
 first_year_room_6_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 first_year_room_6_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
-second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
+second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
 mature_first_year_room_7_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
 mature_first_year_room_7_2 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
 
-second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
-second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
+second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
+second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
 
-buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses", "health potion"])
+buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses"])
 
 communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto"])
 first_year_room_room_12_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
@@ -30,8 +30,8 @@ mark_drakeford_room_13_1 = Enemy("Mark", "Mark Drakeford", 120, 35, ["swatter", 
 
 phd_student_room_16_1 = Enemy("PHD", "PHD Student", 120, 35, ["shovel", "timberland boots"])
 
-medicine_student_room_18_1 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog", "health potion"])
-medicine_student_room_18_2 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog", "health potion"])
+medicine_student_room_18_1 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
+medicine_student_room_18_2 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
 law_student_room_18 = Enemy("Law_Student", "Law Student", 160, 40, ["mallet", "necklace", "Stuart Allen's Mum"])
 
 professor_stuart_allen_room_20 = Enemy("Prof_Stuart", "Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])

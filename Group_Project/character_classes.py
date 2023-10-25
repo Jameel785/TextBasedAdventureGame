@@ -71,8 +71,8 @@ class Player():
                     chosen_stat = True
 
                 elif user_input == "health":
-                    self.max_health += 10
-                    self.health += 10
+                    self.max_health += 20
+                    self.health += 20
                     chosen_stat = True
 
                 elif user_input == "exp_gain":
@@ -245,30 +245,30 @@ class Player():
     def class_stats(self):
         if self.character_class == "warrior":
             self.name = "Warrior Kirill"
-            self.health = 70
-            self.max_health = 70
-            self.damage_per_hit = 20
+            self.health = 150
+            self.max_health = 150
+            self.damage_per_hit = 40
             self.experience_gain = 20
     
         elif self.character_class == "wizard":
             self.name = "Wizard Kirill"
-            self.health = 50
-            self.max_health = 50
-            self.damage_per_hit = 10
+            self.health = 120
+            self.max_health = 120
+            self.damage_per_hit = 30
             self.experience_gain = 40
 
         elif self.character_class == "barbarian":
             self.name = "Barbarian Kirill"
-            self.health = 100
-            self.max_health = 100
-            self.damage_per_hit = 10
+            self.health = 150
+            self.max_health = 150
+            self.damage_per_hit = 30
             self.experience_gain = 20
 
         elif self.character_class == "challenge":
             self.name = "Challenged Kirill"
-            self.health = 50
-            self.max_health = 50
-            self.damage_per_hit = 10
+            self.health = 100
+            self.max_health = 100
+            self.damage_per_hit = 30
             self.experience_gain = 20
 
 #OOP for the enemies

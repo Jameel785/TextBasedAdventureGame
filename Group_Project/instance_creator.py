@@ -21,7 +21,7 @@ second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa
 
 buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses", "health potion"])
 
-communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto" "room 14 key"])
+communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto"])
 first_year_room_room_12_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 first_year_room_room_12_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
@@ -447,7 +447,5 @@ rooms = {
 #professor_stuart_allen = Enemy("Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
 
 
-
-
 #This allows starts the players journeys
-player = Player(100, 15, rooms["Lecture Room"], ["potion", "potion", "rock"], 25)  
+player = Player(100, 15, rooms["Lecture Room"], ["potion", "potion", "rock"], 25) 

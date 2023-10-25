@@ -56,21 +56,18 @@ def execute_go(direction):
             if items["room 14 key"] not in player.inventory:
                 print("Please collect the key to access room 14!")
 
-            else:
-                change_room = True
+            elif items["room 14 key"] in player.inventory:
+                player.current_room = rooms[room]
 
         elif room == "Cardiff Castle":
             if items["room 20 key"] not in player.inventory:
                 print("Please collect the key to access room 20!")
 
-            else:
-                change_room = True
-        
-        elif room != "END":
-            change_room = True
+            elif items["room 20 key"] in player.inventory:
+                player.current_room = rooms[room]
 
-        if change_room:
-            player.current_room = rooms[player.current_room.exits[direction]]
+        if room != "END":
+            player.current_room = rooms[room]
     
 
 def execute_take(item_id):
@@ -162,6 +159,7 @@ def execute_attack(enemy_name):
 
         if enemy.is_dead():
             print(f"You defeated {enemy.name}.")
+            player.current_room.pick_up_enemy_items()
 
 
 def execute_command(command):

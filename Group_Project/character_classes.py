@@ -1,6 +1,5 @@
 from items import items
 import time
-
 #OOP for the player
 
 class Player():
@@ -15,7 +14,6 @@ class Player():
         self.weight = self.weight_calculator()
 
         self.give_up = False
-        self.skip_scrolling_text = False
 
 
     def remove_health(self, damage):
@@ -112,7 +110,6 @@ class Player():
                 self.weight = weight
     
 
-
 #OOP for the enemies
 
 class Enemy():
@@ -121,7 +118,6 @@ class Enemy():
         self.name = name
         self.health = health
         self.damage_per_hit = damage_per_hit
-        self.weapon = items[0]
         self.items = items
 
 
@@ -131,8 +127,8 @@ class Enemy():
 
         self.health -= damage
 
-        if self.health <= 0:
-            self.drop_items()
+        # if self.health <= 0:
+        #     self.drop_items()
             
 
     def add_health(self, healing):
@@ -153,13 +149,6 @@ class Enemy():
             return False
         
 
-    def drop_items(self):
-        """This method drops items from the dead enemies
-        and allows the player to pick them up from the room"""
-        
-        overall_weight = 0
-        for item in self.items:
-            overall_weight += item["weight"]
-        for item in self.items:
-            player.current_room.items.append(item)
-            self.items.remove(item)
+    
+
+ 

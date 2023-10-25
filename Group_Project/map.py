@@ -55,6 +55,12 @@ class Room():
             print("press 's' to skip the scrolling text!\n")
             scrolling_text(self.dialouge)
 
+    
+    def puzzle_room(self):#-------------------------------------------------------
+        if self.dialouge["puzzle"] is not None:
+            pass
+
+
 
     def list_of_items(self):
         """This methods takes all the items in the rooms 
@@ -93,6 +99,17 @@ class Room():
         """returns the value of the key in the directions of the room"""
         
         return direction in self.exits
+    
+
+    def pick_up_enemy_items(self):
+        """This method picks up items from the dead enemies
+        and allows the player to pick them up from the room"""
+        
+        for enemy in self.enemies:
+            for item in enemy.items:
+                self.items.append(item)
+                enemy.items.remove(item)
+            
 
     
 

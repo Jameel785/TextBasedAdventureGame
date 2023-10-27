@@ -10,51 +10,43 @@ class Item():
 
 
 #item class name          item id      name of item     decription of item                        damage  weight
-item_blunderbuss = Item("blunderbuss", "blunderbuss", "blast your enemies back to the 18th century.", 45, 10)
+item_blunderbuss = Item("blunderbuss", "blunderbuss", "will blast your enemies back to the 18th century.", 45, 10)
 
-item_frog = Item("frog", "friendly frog", "will follow you and lick the eyes of your enemies causing damage", 5, 0.3)
+item_frog = Item("frog", "friendly frog", "will follow you and lick your eyes, But Jerry likes licking.", 5, 0.3)
 
-item_swatter = Item("swatter", "venemous fly swatter", "provides poison damage over time. damage for 3 turns.", 10, 5)
+room_14_key = Item("key1", "large key", "is a comically large key and it opens a comically large door.", 0, 1)
 
-room_14_key = Item("key1", "large key", "is a comically large key. opens a comically large door", 0, 1)
+room_20_key = Item("key2", "HUGE key", "is an even larger, more comedic key. Honestly how can you even carry it!", 0, 2)
 
-room_20_key = Item("key2", "HUGE key", "is an even larger, more comedic key. most likey opens a larger door too", 0, 2)
+item_potion = Item("potion", "potion", "heals health by 20 points it also comes in rasberry flavour (403 calories)", 0, 3)
 
-item_potion = Item("potion", "potion", "heals health by 35%.\n and has rasberry flavour (403 calories)", 0, 3)
+item_necklace = Item("necklace", "cross necklace", "is the last signs of faith in this ungodly land.", 0, 2)
 
-item_necklace = Item("necklace", "cross necklace", "is the last signs of faith in this ungodly land. increases max health by 20", 0, 2)
+item_rock = Item("rock", "large rock", "is the caveman's wepon of choice.", 20, 6)
 
-item_rock = Item("rock", "large rock", "is the caveman's wepon of choice.",20,6)
+item_spine = Item("spine", "human spine", "belongs to... who does this belong to?", 15, 5)
 
-item_gloves = Item("gloves", "boxing gloves taken from Mohamed Ali's ", "is immediately gain the boxing ability mohamed ali. can be used to dammage enemies.", 25, 4)
+item_shovel = Item("shovel", "shovel", "is like a spade but different...", 25, 3)
 
-item_spine = Item("spine", "human spine", "belongs to... who does this belong to? sharp and jagged, perfect for killing enemies.", 40, 5)
-
-item_shovel = Item("shovel", "shovel", "is like a spade but different. good for killing enemies.", 30, 3)
-
-item_boots = Item("timberland_boots", "pair of timberland boots", "can kick enemies in beige.", 35, 4)
+item_boots = Item("boots", "boots", "can kick enemies in beige.", 35, 4)
 
 item_glasses = Item("glasses", "pair of sun glasses", "looks cool.", 0, 1)
 
-item_mallet = Item("mallet", "large wooden mallet", "will leave a tom and jerry esque mound on your enemies head.", 40, 8)
+item_mallet = Item("mallet", "large wooden mallet", "will leave a Tom and Jerry esque mound on your enemies head.", 40, 8)
 
-item_lynx_africa = Item("lynx_africa", "can of lynx aftrica", "is severely toxic to anyone in range, can be sprayed on enemies, deals damage over 2 turns", 15, 3)
+item_lynx_africa = Item("lynx", "can of lynx africa", "is severely toxic to anyone in range, can be sprayed on enemies.", 20, 3)
 
-item_GPU = Item("gpu", "ASUS ROG strix gaming RTX 4090 ti extreme blue eddition", "has more names than an italian painter and is the size and weight of a cinder block. can hit enemies with it.", 50, 20)
+item_GPU = Item("gpu", "ASUS ROG strix gaming RTX 4090 ti extreme blue edition", "has more names than an italian painter and is the size and weight of a cinder block.", 50, 20)
 
-item_knuckle_dusters = Item("knuckle_dusters", "knuckle dusters", "is for those with pure skill and avbility no hadicaps here", 5, 0)
+item_knuckle_dusters = Item("knuckle", "knuckle_dusters", "is for those with pure skill and ability no hadicaps here.", 30, 0)
 
-item_coffee = Item("coffee", "a pretentiously brewed coffee", "may cause caffeen addiction. restores 45 health.", 0, 4)
+item_speech = Item("speech", "a magical yaping ability", "gives the user an incredibaly compelling voice that fills the room with definately not paid actors forced to listen.", 0, 0)
 
-item_shield = Item("shield", "a great warriors shield (skate board)", "can negate incoming attacks from enemies ONLY if you can land a kickflip", 0,8)
+item_boss_bare_fist = Item("Stuarts_hands", "Stuarts_fingies", "is the hand that control the minds of the whole Computer science school.", 50, 100)
 
-item_speech = Item("speech", "a magical captivating yaping ability", "gives the user an incredibaly compelling voice that fills the room with definately not paid actors forced to listen", 0, 0)
+Chris = Item("Chris", "Chris", "is the love of Kirill's life.", 0, 0)
 
-item_boss_bare_fist = Item("boss_bare_fist", "Stuart Allen's mighty hands", "is the hand that control the minds of the whole Computer science school", 50, 100)
-
-Chris = Item("Chris", "Chris", "is the love of Kirill's life", 0, 0)
-
-Stuart_Allens_Mum = Item("Stuart Allen's Mum", "Stuart Allen's Mum", "is the mother of the head of the computer science school, maybe you could hold her hostage?", 0, 0) 
+Stuart_Allens_Mum = Item("Stuart Allen's Mum", "Stuart Allen's Mum", "is the mother of the head of the computer science school, and now you've taken her hostage!!", 0, 0) 
 
 items = {  
 
@@ -68,17 +60,13 @@ items = {
     "shovel": item_shovel,
     "frog": item_frog,
     "spine": item_spine,
-    "gloves": item_gloves,
     "rock": item_rock,
     "necklace": item_necklace,
     "potion": item_potion,
     "room 14 key": room_14_key,
     "room 20 key": room_20_key,
-    "swatter": item_swatter,
     "blunderbuss": item_blunderbuss,
-    "knuckle dusters": item_knuckle_dusters,
-    "coffee": item_coffee,
-    "shield": item_shield,
+    "knuckle_dusters": item_knuckle_dusters,
     "speech": item_speech,
     "boss bare fist": item_boss_bare_fist,
     "Chris": Chris,

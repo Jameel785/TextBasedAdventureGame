@@ -105,9 +105,9 @@ What is the one-word answer to indicate who is sitting at computer A?\n""")
                 print("Would you like to give up (Y/N)?")
                 user_input = input("> ")
 
-                user_input = normalise_input(user_input)
+                user_input = normalise_input(user_input)[0]
 
-                if user_input == "Y":
+                if user_input == "y":
                     player.give_up = True
                     end_condition_met()
 
@@ -168,6 +168,8 @@ def execute_take(item_id):
         except:
             pass
 
+    
+
         
 def execute_drop(item_id):
     """This function takes an item_id as an argument and moves this item from the
@@ -196,7 +198,7 @@ def execute_drop(item_id):
 def execute_inspect(item_id):
     for item in player.inventory:
         if items[item].id == item_id:
-            item = "This item is a", items[item].name, "and it", items[item].description
+            item = "This item is a ", items[item].name, " and it ", items[item].description
             scrolling_text(item)
 
 def execute_attack(enemy_name):
@@ -211,16 +213,23 @@ def execute_attack(enemy_name):
         return
 
     while not enemy.is_dead() and not player.is_dead():
+        if enemy.id == "BUFF ART Second Year":
+            scrolling_text("""Oh no it turns out that is not just a second year!\n
+                IT IS A...""")
+            print("\n                         BUFF ART STUDENT                  \n")
+            
         print(f"Your health: {player.health}")
         print(f"Enemy health: {enemy.health}\n")
         print("Your turn:")
         player.print_inventory_items()
-        print("type 1 to Attack")
-        print("type 2 Use Health Potion")
+        print("TYPE ATTACK to attack")
+        print("TYPE HEAL to use health potion")
         player_choice = input("Choose an action: ")
         print("")
 
-        if player_choice == "1":
+        player_choice = normalise_input(player_choice)[0]
+
+        if player_choice == "attack":
             player_weapons = []
             for item in player.inventory:
                 if items[item].damage_increase > 0:
@@ -228,7 +237,7 @@ def execute_attack(enemy_name):
                 
             weapon_string = ""
             for weapon in player_weapons:
-                weapon_string += str(weapon) + ", "
+                weapon_string += str(weapon).upper() + ", "
             weapon_string = weapon_string[:-2]
 
             print("you can attack with:", weapon_string)
@@ -243,7 +252,7 @@ def execute_attack(enemy_name):
             print(f"You attacked with {item.name} and dealt {damage} damage.\n")
             enemy.remove_health(damage)
 
-        if player_choice == "2":
+        if player_choice == "heal":
             if "potion" in player.inventory:
                 player.add_health(75)
                 player.inventory.remove("potion")

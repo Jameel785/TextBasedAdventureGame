@@ -24,6 +24,7 @@ class Player():
         print("\nPress 's' to skip the scrolling text!")
         text = self.current_room.dialouge
         scrolling_text(text)
+        
 
     def remove_health(self, damage):
         """This method decreases the health of the player by 
@@ -247,29 +248,29 @@ class Player():
             self.name = "Warrior Kirill"
             self.health = 150
             self.max_health = 150
-            self.damage_per_hit = 40
-            self.experience_gain = 20
+            self.damage_per_hit = 20
+            self.experience_gain = 10
     
         elif self.character_class == "wizard":
             self.name = "Wizard Kirill"
             self.health = 120
             self.max_health = 120
-            self.damage_per_hit = 30
-            self.experience_gain = 40
+            self.damage_per_hit = 10
+            self.experience_gain = 20
 
         elif self.character_class == "barbarian":
             self.name = "Barbarian Kirill"
             self.health = 150
             self.max_health = 150
-            self.damage_per_hit = 30
-            self.experience_gain = 20
+            self.damage_per_hit = 10
+            self.experience_gain = 10
 
         elif self.character_class == "challenge":
             self.name = "Challenged Kirill"
             self.health = 100
             self.max_health = 100
-            self.damage_per_hit = 30
-            self.experience_gain = 20
+            self.damage_per_hit = 10
+            self.experience_gain = 10
 
 #OOP for the enemies
 

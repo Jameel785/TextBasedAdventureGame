@@ -3,38 +3,38 @@ from map import Room
 from character_classes import Enemy, Player
     
 #defining each enemy for each room
-first_year_room_4 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+first_year_room_4 = Enemy("Fresher", "First Year", 50, 5, ["rock"])
 
-first_year_room_5_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
-first_year_room_5_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+first_year_room_5_1 = Enemy("Fresher", "First Year", 50, 5, ["rock"])
+first_year_room_5_2 = Enemy("Fresher", "First Year", 50, 5, ["rock"])
 
-mature_first_year_room_6_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
-first_year_room_6_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
-first_year_room_6_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
+mature_first_year_room_6_1 = Enemy("Old_Fresher", "Mature First Year", 70, 10, ["knuckle_dusters", "glasses"])
+first_year_room_6_1 = Enemy("Fresher", "First Year", 50, 5, ["rock"])
+first_year_room_6_2 = Enemy("Fresher", "First Year", 50, 5, ["rock"])
 
-second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
-mature_first_year_room_7_1 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
-mature_first_year_room_7_2 = Enemy("Old_Fresher", "Mature First Year", 70, 20, ["bare fists", "glasses"])
+second_year_room_7_1 = Enemy("Second_Year", "Second Year", 80, 20, ["lynx africa", "glasses"])
+mature_first_year_room_7_1 = Enemy("Old_Fresher", "Mature First Year", 70, 10, ["knuckle_dusters", "glasses"])
+mature_first_year_room_7_2 = Enemy("Old_Fresher", "Mature First Year", 70, 10, ["knuckle_dusters", "glasses"])
 
-second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
-second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 25, ["lynx africa", "glasses"])
+second_year_room_9_1 = Enemy("Second_Year", "Second Year", 80, 20, ["lynx africa", "glasses"])
+second_year_room_9_2 = Enemy("Second_Year", "Second Year", 80, 20, ["lynx africa", "glasses"])
 
-buff_art_second_year_room_11 = Enemy("Second_Year", "Second Year", 100, 25, ["lynx africa", "glasses"])
+buff_art_second_year_room_11 = Enemy("BUFF ART Second Year", "Second Year", 200, 50, ["lynx africa", "glasses"])
 
-communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["shield", "Communist Manifesto"])
+communist_society_president_room_12_1 = Enemy("Communist_Pres", "Communist Society President", 200, 30, ["necklace", "Communist Manifesto"])
 first_year_room_room_12_1 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 first_year_room_room_12_2 = Enemy("Fresher", "First Year", 50, 10, ["rock"])
 
 
-mark_drakeford_room_13_1 = Enemy("Mark", "Mark Drakeford", 120, 35, ["swatter", "speech"])
+mark_drakeford_room_13_1 = Enemy("Mark", "Mark Drakeford", 120, 35, ["speech"])
 
-phd_student_room_16_1 = Enemy("PHD", "PHD Student", 120, 35, ["shovel", "timberland boots"])
+phd_student_room_16_1 = Enemy("PHD", "PHD Student", 120, 35, ["shovel", "boots"])
 
 medicine_student_room_18_1 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
 medicine_student_room_18_2 = Enemy("Med_Student", "Medicine Student", 160, 40, ["spine", "frog"])
 law_student_room_18 = Enemy("Law_Student", "Law Student", 160, 40, ["mallet", "necklace", "Stuart Allen's Mum"])
 
-professor_stuart_allen_room_20 = Enemy("Prof_Stuart", "Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
+professor_stuart_allen_room_20 = Enemy("Prof_Stuart", "Professor Stuart Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
 
 
 
@@ -463,24 +463,6 @@ rooms = {
     "Principality Stadium":Principality_stadium,
     "Cardiff Castle":Cardiff_castle
 }
-
-#first_year_room = Enemy("First Year", 50, 10, ["rock"])
-
-#mature_first_year = Enemy("Mature First Year", 70, 20, ["bare fists", "glasses"])
-
-#second_year = Enemy("Second Year", 80, 25, ["lynx africa", "glasses", "health potion"])
-
-#communist_society_president = Enemy("Communist Society President", 200, 30, ["shield", "Communist Manifesto" "room 14 key"])
-
-#mark_drakeford = Enemy("Mark Drakeford", 120, 35, ["swatter", "Peitho's voice"])
-
-#phd_student = Enemy("PHD Student", 120, 35, ["shovel", "timberland boots"])
-
-#medicine_student = Enemy("Medicine Student", 160, 40, ["spine", "frog", "health potion"])
-
-#law_student = Enemy("Law Student", 160, 40, ["mallet", "necklace"])
-
-#professor_stuart_allen = Enemy("Professor Student Allen", 200, 50, ["boss bare fists", "gpu", "Chris"])
 
 
 #This allows starts the players journeys
